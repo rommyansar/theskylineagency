@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  devIndicators: {
-    appIsrStatus: false,
-    buildActivity: false,
-  },
+  /* Fixed: Removed invalid devIndicators config that was causing build failure */
+
 };
 
 export default nextConfig;
