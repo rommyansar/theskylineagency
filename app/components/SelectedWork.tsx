@@ -128,7 +128,7 @@ const projects = [
 export default function SelectedWork() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
-  const sectionRef = useReveal();
+  const sectionRef = useReveal(['SelectedWork', activeFilter, visibleCount]);
 
   const handleFilterChange = (cat: string) => {
     setActiveFilter(cat);

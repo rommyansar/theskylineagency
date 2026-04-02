@@ -1,15 +1,15 @@
 'use client';
 
-import { useEffect, useRef, type RefObject } from 'react';
+import { useEffect, useRef, type RefObject, type DependencyList } from 'react';
 
-export function useReveal(): RefObject<HTMLElement | null> {
-  const ref = useRef<HTMLElement | null>(null);
+export function useReveal<T extends HTMLElement = HTMLElement>(dependencies: DependencyList = []): RefObject<T | null> {
+  const ref = useRef<T | null>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const targets = el.querySelectorAll('.reveal');
+    const targets = el.querySelectorAll('.reveal:not(.visible)');
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,7 +26,8 @@ export function useReveal(): RefObject<HTMLElement | null> {
     targets.forEach((target) => observer.observe(target));
 
     return () => observer.disconnect();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, dependencies);
 
   return ref;
 }
