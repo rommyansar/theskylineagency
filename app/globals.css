@@ -130,8 +130,8 @@ nextjs-portal {
   content: "";
   position: fixed;
   bottom: 0;
-  width: 300px;
-  height: 100px;
+  width: 50vw;
+  height: 120px;
   background: #000000;
   z-index: 2147483647; 
   pointer-events: none;
@@ -148,8 +148,8 @@ nextjs-portal {
 @media (max-width: 768px) {
   .spline-wrapper::before,
   .spline-wrapper::after {
-    width: 180px;
-    height: 80px;
+    width: 50vw;
+    height: 100px;
   }
 }
 
@@ -1234,11 +1234,11 @@ nextjs-portal {
   }
 
   .spline-wrapper {
-    width: 100vw;
+    width: 180vw;
     height: 100vh;
-    left: 0;
+    left: -40vw;
     top: 0;
-    transform: scale(0.8);
+    transform: scale(0.56);
     transform-origin: center center;
     pointer-events: none;
   }
@@ -1250,11 +1250,11 @@ nextjs-portal {
   }
 
   .spline-wrapper {
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    transform: scale(0.65);
+    width: 220vw;
+    height: 120vh;
+    left: -60vw;
+    top: -10vh;
+    transform: scale(0.45);
     transform-origin: center center;
     pointer-events: none;
   }
@@ -1328,16 +1328,76 @@ nextjs-portal {
   .section-header {
     margin-bottom: 40px;
   }
+
+  /* Compact portfolio cards on mobile */
+  .portfolio-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+  .portfolio-info {
+    padding: 16px 18px;
+  }
+
+  .portfolio-name {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .portfolio-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .portfolio-review-block {
+    display: none;
+  }
+
+  .portfolio-card {
+    border-radius: 14px;
+  }
+
+  .portfolio-hover-overlay {
+    padding: 14px;
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  }
+
+  .portfolio-cat-tag {
+    padding: 4px 10px;
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .portfolio-result {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .spline-wrapper {
-    transform: scale(0.5);
-    top: 0vh;
+    width: 260vw;
+    height: 130vh;
+    left: -80vw;
+    top: -15vh;
+    transform: scale(0.38);
+    transform-origin: center center;
   }
 
   .section-title {
     font-size: 28px;
+  }
+
+  @media (max-width: 360px) {
+    .spline-wrapper {
+      width: 300vw;
+      left: -100vw;
+      transform: scale(0.33);
+      top: -10vh;
+    }
   }
 
   .nav-logo {
@@ -1727,8 +1787,7 @@ nextjs-portal {
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 1);
   z-index: 10000;
   display: flex;
   align-items: center;
