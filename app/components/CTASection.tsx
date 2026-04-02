@@ -8,6 +8,7 @@ export default function CTASection() {
   return (
     <section className="cta-section" id="contact" ref={sectionRef}>
       <div className="cta-glow" aria-hidden="true" />
+      <div className="cta-glow-secondary" aria-hidden="true" />
       <div className="section-container cta-inner">
         <h2 className="cta-heading reveal">
           Let&apos;s Build Something<br />
