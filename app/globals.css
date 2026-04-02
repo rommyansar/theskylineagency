@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,6 +39,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
   line-height: 1.5;
 }
 
@@ -67,6 +70,7 @@ body {
   width: 100%;
   height: 100vh;
   background-color: transparent;
+  overflow: hidden; /* Ensure any overflowing children are clipped */
 }
 
 .content {
@@ -83,38 +87,70 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  /* Prevent WebGL context from being discarded and keep it hardware accelerated */
   transform: translateZ(0);
   will-change: transform;
+  overflow: hidden;
 }
 
-.spline-wrapper a,
-.hero a[href*="spline"],
-canvas + div,
-canvas + a,
-#spline-logo,
-div[style*="z-index"][style*="position: absolute"][style*="bottom"] {
+/* Global Hide for Next.js Dev Toolbar and Spline artifacts */
+#__NEXT_DEV_TOOLBAR, 
+[id*="__NEXT_DEV_TOOLBAR"],
+[id*="spline-logo"],
+[class*="spline-watermark"],
+nextjs-portal {
   display: none !important;
   opacity: 0 !important;
   pointer-events: none !important;
   visibility: hidden !important;
+  z-index: -2147483648 !important;
 }
 
-/* Hard mask for any persistent WebGL/ShadowDOM Spline watermark */
+/* Scoped Hide for Spline artifacts within the hero */
+.spline-wrapper a[href*="spline"], 
+.spline-wrapper a[href*="Spline.design"],
+.spline-wrapper canvas + div,
+.spline-wrapper canvas + a,
+.spline-wrapper [data-spline-watermark],
+.spline-wrapper .spline-watermark,
+.spline-wrapper [class*="watermark"],
+.spline-wrapper [id*="watermark"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Dual Hard Mask for Spline watermarks (bottom-left and bottom-right) */
+/* We use FIXED positioning to ensure they cover watermarks that float at viewport level */
+.spline-wrapper::before,
 .spline-wrapper::after {
   content: "";
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 180px;
-  height: 60px;
-  background: var(--bg-primary); /* Uses exact #000000 root var */
-  z-index: 9999;
-  pointer-events: auto;
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
+  background: #000000;
+  z-index: 2147483647; 
+  pointer-events: none;
 }
 
-[data-spline-watermark] {
-  display: none !important;
+.spline-wrapper::before {
+  left: 0;
+}
+
+.spline-wrapper::after {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .spline-wrapper::before,
+  .spline-wrapper::after {
+    width: 180px;
+    height: 80px;
+  }
 }
 
 .spline-wrapper canvas {
@@ -1155,6 +1191,10 @@ div[style*="z-index"][style*="position: absolute"][style*="bottom"] {
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 24px;
+  }
+
   .services-grid,
   .portfolio-grid,
   .why-grid,
@@ -1194,44 +1234,121 @@ div[style*="z-index"][style*="position: absolute"][style*="bottom"] {
   }
 
   .spline-wrapper {
-    right: auto;
-    bottom: auto;
-    width: 150vw;
-    height: 120vh;
-    left: -25vw;
-    top: -10vh;
-    transform: scale(0.66);
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: scale(0.8);
     transform-origin: center center;
+    pointer-events: none;
   }
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .spline-wrapper {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: scale(0.65);
+    transform-origin: center center;
+    pointer-events: none;
+  }
+  
+  .spline-wrapper::before,
+  .spline-wrapper::after {
+    height: 50px;
+    bottom: 0;
+    z-index: 99999;
+  }
+  
+  .section-container {
+    padding: 0 24px;
+  }
+  
+  .services-section,
+  .portfolio-section,
+  .pricing-section,
+  .process-section,
+  .why-section {
+    padding: 100px 0;
+  }
+
   .checkout-modal {
     max-width: 100%;
     border-radius: 16px;
-  }
-
-  .checkout-header {
-    padding: 20px 24px;
-  }
-
-  .checkout-header h3 {
-    font-size: 18px;
-  }
-
-  .checkout-body {
+    margin: 16px;
     padding: 24px;
   }
 
-  .checkout-pkg-info {
-    padding: 14px;
+  .checkout-header {
+    padding: 0 0 20px 0;
   }
 
-  .checkout-pkg-price {
-    font-size: 22px;
+  .checkout-body {
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-container {
+    padding: 0 20px;
   }
 
-  .checkout-form input,
+  .section-title {
+    font-size: 32px;
+  }
+
+  .services-grid,
+  .portfolio-grid,
+  .process-steps,
+  .why-grid,
+  .pricing-grid,
+  .featured-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .process-steps {
+    gap: 32px;
+  }
+
+  .services-section,
+  .portfolio-section,
+  .pricing-section,
+  .process-section,
+  .why-section {
+    padding: 80px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spline-wrapper {
+    transform: scale(0.5);
+    top: 0vh;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+  }
+  
+  .hero-content {
+    margin-top: -50px;
+  }
+}
+@media (max-width: 768px) {
   .checkout-form textarea {
     padding: 12px 14px;
     font-size: 14px;
