@@ -196,7 +196,7 @@ export default function PricingSection() {
   const aiPackages = [
     {
       name: 'AI Feature Integration',
-      price: '150',
+      price: '250',
       description: "Add an AI feature (chatbot, automation, or GPT) to your web app.",
       delivery: "6-day delivery",
       revisions: "1 Revision",
@@ -212,7 +212,7 @@ export default function PricingSection() {
     },
     {
       name: 'AI Web Application',
-      price: '200',
+      price: '300',
       description: "Custom AI powered web application with automation features, authentication, and API integrations.",
       delivery: "10-day delivery",
       revisions: "2 Revisions",
@@ -228,7 +228,7 @@ export default function PricingSection() {
     },
     {
       name: 'AI SaaS Platform',
-      price: '250',
+      price: '350',
       description: "A scalable AI SaaS with automation, GPT, database, and production deployment.",
       delivery: "14-day delivery",
       revisions: "5 Revisions",
