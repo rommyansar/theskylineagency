@@ -11,6 +11,10 @@ export default function Home() {
     <>
       {/* Hero — LOCKED */}
       <section className="hero">
+        <div className="hero-brand">
+          <h1>TheSkyLine Agency</h1>
+          <p>Turn Your Business Into a Real Brand</p>
+        </div>
         <SplineWrapper />
       </section>
 

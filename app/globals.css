@@ -73,6 +73,63 @@ body {
   overflow: hidden; /* Ensure any overflowing children are clipped */
 }
 
+/* Black edge masks to hide Spline blue glow on left/right */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero::before {
+  left: 0;
+  background: linear-gradient(to right, #000000 20%, transparent 100%);
+}
+
+.hero::after {
+  right: 0;
+  background: linear-gradient(to left, #000000 20%, transparent 100%);
+}
+
+.hero-brand {
+  position: absolute;
+  top: 86%; /* Slightly above previous 90%, still below flower */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none; /* Allows interactions to pass through to Spline */
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero-brand h1 {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: clamp(32px, 5vw, 70px);
+  font-weight: 300; /* Thin, minimalist luxury weight */
+  letter-spacing: 0.1em; /* Wide tracking for sophisticated agency look */
+  line-height: 1.1;
+  color: #ffffff;
+  /* Soft, elegant glow/shadow to lift it off the 3D scene */
+  text-shadow: 0px 4px 30px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero-brand p {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 12px;
+  letter-spacing: 0.04em;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
 .content {
   position: relative;
   background: var(--bg-primary);
@@ -1303,7 +1360,6 @@ nextjs-portal {
     font-size: 32px;
   }
 
-  .services-grid,
   .portfolio-grid,
   .process-steps,
   .why-grid,
@@ -1313,16 +1369,51 @@ nextjs-portal {
     gap: 16px;
   }
 
+  .services-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px 20px 40px 20px;
+    margin: 0 -20px;
+    scroll-padding-left: 20px;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-grid::-webkit-scrollbar {
+    display: none; /* Safari/Chrome */
+  }
+
+  .services-grid .service-card {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    padding: 32px 24px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.05);
+    transform: scale(0.98);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .services-grid .service-card:active {
+    transform: scale(1);
+    border-color: rgba(181, 255, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(181, 255, 0, 0.05);
+  }
+
   .process-steps {
     gap: 32px;
   }
 
-  .services-section,
+  .services-section {
+    padding: 80px 0 20px 0; /* Reduced bottom padding */
+  }
+
   .portfolio-section,
   .pricing-section,
   .process-section,
   .why-section {
-    padding: 80px 0;
+    padding: 60px 0; /* Tighter padding for mobile overall */
   }
   
   .section-header {
@@ -1852,6 +1943,9 @@ nextjs-portal {
     }
     .mobile-menu-btn {
       display: flex;
+    }
+    .navbar.scrolled .mobile-menu-btn {
+      display: none;
     }
     .nav-container {
       padding: 0 24px;

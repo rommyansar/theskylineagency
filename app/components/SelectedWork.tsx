@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 
 const categories = ['All', 'Apps', 'Websites', 'Software', 'AI'];
@@ -127,12 +127,24 @@ const projects = [
 
 export default function SelectedWork() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [visibleCount, setVisibleCount] = useState(6);
-  const sectionRef = useReveal(['SelectedWork', activeFilter, visibleCount]);
+  const [expandAll, setExpandAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // useReveal still benefits from an array of dependencies, but let's just trigger it when data changes
+  const sectionRef = useReveal(['SelectedWork', activeFilter, expandAll, isMobile]);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleFilterChange = (cat: string) => {
     setActiveFilter(cat);
-    setVisibleCount(6);
+    setExpandAll(false);
   };
 
   const filtered =
@@ -140,6 +152,10 @@ export default function SelectedWork() {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
+  // On server (not mounted), default to 6 to match typical desktop payload. 
+  // On client, show 1 if mobile and not expanded, 6 if desktop and not expanded, or all if expanded.
+  const defaultVisibleCount = isMounted && isMobile ? 1 : 6;
+  const visibleCount = expandAll ? filtered.length : defaultVisibleCount;
   const displayedProjects = filtered.slice(0, visibleCount);
 
   return (
@@ -197,7 +213,7 @@ export default function SelectedWork() {
           <div className="reveal" style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
             <button 
               className="cta-button" 
-              onClick={() => setVisibleCount(filtered.length)}
+              onClick={() => setExpandAll(true)}
             >
               See More
               <span className="cta-arrow">→</span>

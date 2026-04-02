@@ -20,7 +20,7 @@ export default function SplineScene() {
         </div>
       )}
       <Spline
-        scene="https://prod.spline.design/S6WffR5L-zdzbukJ/scene.splinecode"
+        scene="https://prod.spline.design/P99QTO5sUGseFIKJ/scene.splinecode"
         onLoad={() => setIsLoaded(true)}
         style={{ width: '100%', height: '100%' }}
       />
