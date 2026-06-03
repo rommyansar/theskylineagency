@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
+import { submitOnboarding } from '../actions/onboarding';
 
 export default function PricingSection() {
   const [activeTab, setActiveTab] = useState<'app' | 'website' | 'software' | 'ai'>('website');
@@ -10,13 +11,58 @@ export default function PricingSection() {
   const [checkoutPkg, setCheckoutPkg] = useState<{name: string, price: string} | null>(null);
   const [formStep, setFormStep] = useState<'form' | 'qr'>('form');
 
+  // Checkout form states
+  const [checkoutForm, setCheckoutForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    details: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const handleContinue = (pkgName: string, pkgPrice: string) => {
     setCheckoutPkg({ name: pkgName, price: pkgPrice });
     setFormStep('form');
+    setCheckoutForm({ name: '', email: '', phone: '', details: '' });
+    setSubmitError('');
   };
 
   const closeCheckout = () => {
     setCheckoutPkg(null);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setCheckoutForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckoutSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!checkoutPkg) return;
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const res = await submitOnboarding({
+        name: checkoutForm.name,
+        email: checkoutForm.email,
+        company: checkoutForm.phone ? `Phone: ${checkoutForm.phone}` : 'N/A',
+        projectType: `Package: ${checkoutPkg.name}`,
+        budget: `Price: US$${checkoutPkg.price}`,
+        details: checkoutForm.details,
+      });
+
+      if (res.success) {
+        setFormStep('qr');
+      } else {
+        setSubmitError(res.error || 'Failed to submit. Please try again.');
+      }
+    } catch (err: any) {
+      setSubmitError(err.message || 'An unexpected error occurred.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const appPackages = [
@@ -369,24 +415,66 @@ export default function PricingSection() {
               </div>
 
               {formStep === 'form' ? (
-                <form className="checkout-form" onSubmit={(e) => { e.preventDefault(); setFormStep('qr'); }}>
+                <form className="checkout-form" onSubmit={handleCheckoutSubmit}>
+                  {submitError && (
+                    <div className="checkout-error-msg" style={{ color: '#ff4d4d', fontSize: '13px', marginBottom: '16px', background: 'rgba(255, 77, 77, 0.08)', padding: '10px 14px', borderRadius: '8px', border: '1px solid rgba(255, 77, 77, 0.15)' }}>
+                      {submitError}
+                    </div>
+                  )}
                   <div className="form-group">
-                    <label>Full Name *</label>
-                    <input type="text" required placeholder="John Doe" />
+                    <label htmlFor="checkout-name">Full Name *</label>
+                    <input 
+                      type="text" 
+                      id="checkout-name"
+                      name="name" 
+                      required 
+                      value={checkoutForm.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe" 
+                      disabled={isSubmitting}
+                    />
                   </div>
                   <div className="form-group">
-                    <label>Email Address *</label>
-                    <input type="email" required placeholder="john@company.com" />
+                    <label htmlFor="checkout-email">Email Address *</label>
+                    <input 
+                      type="email" 
+                      id="checkout-email"
+                      name="email" 
+                      required 
+                      value={checkoutForm.email}
+                      onChange={handleInputChange}
+                      placeholder="john@company.com" 
+                      disabled={isSubmitting}
+                    />
                   </div>
                   <div className="form-group">
-                    <label>Phone Number (Optional)</label>
-                    <input type="tel" placeholder="+1 (555) 000-0000" />
+                    <label htmlFor="checkout-phone">Phone Number (Optional)</label>
+                    <input 
+                      type="tel" 
+                      id="checkout-phone"
+                      name="phone" 
+                      value={checkoutForm.phone}
+                      onChange={handleInputChange}
+                      placeholder="+1 (555) 000-0000" 
+                      disabled={isSubmitting}
+                    />
                   </div>
                   <div className="form-group">
-                    <label>Project Details *</label>
-                    <textarea required rows={3} placeholder="Tell us briefly about your requirements..."></textarea>
+                    <label htmlFor="checkout-details">Project Details *</label>
+                    <textarea 
+                      id="checkout-details"
+                      name="details" 
+                      required 
+                      rows={3} 
+                      value={checkoutForm.details}
+                      onChange={handleInputChange}
+                      placeholder="Tell us briefly about your requirements..."
+                      disabled={isSubmitting}
+                    />
                   </div>
-                  <button type="submit" className="checkout-submit">Proceed to Payment</button>
+                  <button type="submit" className="checkout-submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Saving request...' : 'Proceed to Payment'}
+                  </button>
                 </form>
               ) : (
                 <div className="qr-view">
