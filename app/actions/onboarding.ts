@@ -18,17 +18,22 @@ export async function submitOnboarding(data: OnboardingData) {
     console.error('Missing Supabase Environment Variables');
     return { success: false, error: 'Database configuration missing.' };
   }
-
   // 1. Save to Supabase (using standard REST API)
   try {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'apikey': serviceKey,
+      'Prefer': 'return=minimal',
+    };
+
+    // If it's a legacy JWT key (starts with ey), we also need the Authorization header
+    if (serviceKey.startsWith('ey')) {
+      headers['Authorization'] = `Bearer ${serviceKey}`;
+    }
+
     const response = await fetch(`${supabaseUrl}/rest/v1/onboarding`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': anonKey,
-        'Authorization': `Bearer ${serviceKey}`,
-        'Prefer': 'return=minimal',
-      },
+      headers,
       body: JSON.stringify({
         name: data.name,
         email: data.email,
@@ -38,7 +43,6 @@ export async function submitOnboarding(data: OnboardingData) {
         details: data.details,
       }),
     });
-
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Supabase Error (${response.status}): ${errorText}`);

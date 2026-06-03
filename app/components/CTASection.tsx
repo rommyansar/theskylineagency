@@ -1,12 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import OnboardingModal from './OnboardingModal';
 
 export default function CTASection() {
   const sectionRef = useReveal();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Automatically trigger onboarding form once per session
+    const hasShown = sessionStorage.getItem('onboarding_auto_popup');
+    if (!hasShown) {
+      const timer = setTimeout(() => {
+        setIsModalOpen(true);
+        sessionStorage.setItem('onboarding_auto_popup', 'true');
+      }, 3000); // 3-second delay lets page settle and prevents blocking hero loading
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <section className="cta-section" id="contact" ref={sectionRef}>
@@ -23,12 +35,9 @@ export default function CTASection() {
         <button 
           onClick={() => setIsModalOpen(true)} 
           className="cta-button reveal reveal-delay-2"
-          style={{ cursor: 'pointer', border: 'none', background: 'none', padding: 0 }}
         >
-          <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-            Start a Project
-            <span className="cta-arrow">→</span>
-          </span>
+          Start a Project
+          <span className="cta-arrow">→</span>
         </button>
       </div>
 
