@@ -15,7 +15,7 @@ export default function CTASection() {
       const timer = setTimeout(() => {
         setIsModalOpen(true);
         sessionStorage.setItem('onboarding_auto_popup', 'true');
-      }, 3000); // 3-second delay lets page settle and prevents blocking hero loading
+      }, 10000); // 10-second delay lets page settle, allows user exploration, and prevents blocking hero loading
       return () => clearTimeout(timer);
     }
   }, []);

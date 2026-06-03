@@ -5,41 +5,42 @@ import dynamic from 'next/dynamic';
 
 const SplineScene = dynamic(() => import('./SplineScene'), {
   ssr: false,
-  loading: () => (
-    <div className="spline-wrapper">
-      <div className="spline-loader">
-        <div className="loader-content">
-          <div className="loader-ring" />
-          <span className="loader-text">Loading Experience</span>
-        </div>
-      </div>
-    </div>
-  ),
+  loading: () => null,
 });
 
 export default function SplineWrapper() {
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
 
   useEffect(() => {
-    // Delay rendering the dynamic component to prioritize page startup (Critical CSS, fonts, layouts)
+    // Start loading the heavy Spline scene after a short initial delay to let Critical CSS render
     const timer = setTimeout(() => {
       setShouldLoad(true);
-    }, 600); // 600ms is standard for browser to finish paint/first interactions
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!shouldLoad) {
-    return (
-      <div className="spline-wrapper">
-        <div className="spline-loader">
-          <div className="loader-content">
-            <div className="loader-ring" />
-            <span className="loader-text">Initializing Brand</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div className="spline-wrapper">
+      {/* Static Placeholder Background Image */}
+      <div 
+        className="spline-placeholder"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: "url('/hero-placeholder.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: 1,
+          pointerEvents: 'none',
+          transition: 'opacity 1.5s ease-in-out',
+          opacity: isSplineLoaded ? 0 : 1,
+        }}
+      />
 
-  return <SplineScene />;
+      {shouldLoad && (
+        <SplineScene onLoad={() => setIsSplineLoaded(true)} />
+      )}
+    </div>
+  );
 }
