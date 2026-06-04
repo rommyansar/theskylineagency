@@ -1,0 +1,139 @@
+'use client';
+
+import { useState } from 'react';
+import { submitDemoRequest } from '../actions/demo';
+
+export default function TalkCTASection() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const res = await submitDemoRequest(email);
+      if (res.success) {
+        alert(`Thank you! Demo request booked for: ${email}`);
+        setEmail('');
+      } else {
+        alert(`Could not send request: ${res.error}`);
+      }
+    } catch (err) {
+      alert('An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section className="talk-cta-section" id="contact">
+      <div className="spheres-bg-left"></div>
+      <div className="spheres-bg-right"></div>
+
+      <div className="section-container">
+        <h2 className="talk-cta-title">Let's talk about your firm's success.</h2>
+        <p className="talk-cta-sub">
+          Get started by becoming a Skyline customer and start a live chat with our team.
+        </p>
+
+        {/* Pill Form */}
+        <div className="talk-cta-form-wrap">
+          <form className="pill-form" onSubmit={handleSubmit} style={{ border: 'none', maxWidth: '540px' }}>
+            <input 
+              type="email" 
+              className="pill-input" 
+              placeholder="Your work email address" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '100px 0 0 100px',
+                border: '1px solid rgba(255,255,255,0.1)',
+                height: '56px',
+                fontSize: '16px'
+              }}
+              required 
+            />
+            <button 
+              type="submit" 
+              className="pill-btn" 
+              disabled={isSubmitting}
+              style={{
+                backgroundColor: '#F18978',
+                color: '#121212',
+                borderRadius: '0 100px 100px 0',
+                height: '56px',
+                padding: '0 36px',
+                fontSize: '16px',
+                fontWeight: 800
+              }}
+            >
+              {isSubmitting ? 'Sending...' : 'Book a Demo'}
+            </button>
+          </form>
+        </div>
+
+        {/* Bottom 3 Badges aligned horizontally */}
+        <div className="talk-cta-badges-row">
+          <div style={{
+            width: '100px',
+            height: '120px',
+            backgroundColor: '#FFFFFF',
+            color: '#000000',
+            borderRadius: '6px',
+            padding: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            textAlign: 'center',
+            borderBottom: '4px solid #FF5F56'
+          }}>
+            <span style={{ fontSize: '8px', fontWeight: 800, color: '#FF5F56' }}>BEST SOFTWARE</span>
+            <span style={{ fontSize: '14px', fontWeight: 800 }}>Top 50</span>
+            <span style={{ fontSize: '8px', color: 'var(--text-muted)' }}>Accounting Products</span>
+          </div>
+
+          <div style={{
+            width: '100px',
+            height: '120px',
+            backgroundColor: '#FFFFFF',
+            color: '#000000',
+            borderRadius: '6px',
+            padding: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            textAlign: 'center',
+            borderBottom: '4px solid #8B5CF6'
+          }}>
+            <span style={{ fontSize: '8px', fontWeight: 800, color: '#8B5CF6' }}>SPRING 2026</span>
+            <span style={{ fontSize: '11px', fontWeight: 800 }}>Most Likely Recommend</span>
+          </div>
+
+          <div style={{
+            width: '100px',
+            height: '120px',
+            backgroundColor: '#FFFFFF',
+            color: '#000000',
+            borderRadius: '6px',
+            padding: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            textAlign: 'center',
+            borderBottom: '4px solid var(--accent-teal)'
+          }}>
+            <span style={{ fontSize: '8px', fontWeight: 800, color: 'var(--accent-teal)' }}>SPRING 2026</span>
+            <span style={{ fontSize: '13px', fontWeight: 800 }}>Best Relation</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

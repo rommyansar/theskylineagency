@@ -1,15 +1,17 @@
-import HeroSection from "./components/HeroSection";
-import ClientChaseSection from "./components/ClientChaseSection";
-import OnboardingGrid from "./components/OnboardingGrid";
-import ThreePillarsSection from "./components/ThreePillarsSection";
-import PracticeManagementSection from "./components/PracticeManagementSection";
-import WhyChooseUs from "./components/WhyChooseUs";
-import PricingSection from "./components/PricingSection";
-import ReviewsSection from "./components/ReviewsSection";
-import TalkCTASection from "./components/TalkCTASection";
-import Footer from "./components/Footer";
+'use client';
 
-export default function Home() {
+import HeroSection from '../components/HeroSection';
+import ClientChaseSection from '../components/ClientChaseSection';
+import OnboardingGrid from '../components/OnboardingGrid';
+import ThreePillarsSection from '../components/ThreePillarsSection';
+import PracticeManagementSection from '../components/PracticeManagementSection';
+import WhyChooseUs from '../components/WhyChooseUs';
+import PricingSection from '../components/PricingSection';
+import ReviewsSection from '../components/ReviewsSection';
+import TalkCTASection from '../components/TalkCTASection';
+import Footer from '../components/Footer';
+
+export default function ServicesPage() {
   return (
     <>
       <main style={{ marginTop: '0px' }}>
@@ -39,10 +41,9 @@ export default function Home() {
 
         {/* Section 9: Let's Talk CTA (Textured Dark theme) */}
         <TalkCTASection />
-
-        {/* Section 10: Sitemap Footer */}
-        <Footer />
       </main>
+
+      <Footer />
     </>
   );
 }

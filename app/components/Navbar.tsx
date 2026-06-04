@@ -28,13 +28,6 @@ export default function Navbar() {
     document.body.style.overflow = 'unset';
   };
 
-  const navLinks = [
-    { name: 'Recent Work', href: '#portfolio' },
-    { name: 'Services', href: '#services' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact Us', href: '#contact' },
-  ];
-
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
@@ -44,13 +37,27 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="nav-links desktop-only">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
-              {link.name}
-            </a>
-          ))}
-          <a href="#contact" className="nav-cta">
-            Get Started
+          <a href="#why" className="nav-link">
+            Why Skyline
+          </a>
+
+          <a href="#reviews" className="nav-link">
+            Reviews
+          </a>
+
+          <a href="#services" className="nav-link">
+            Services
+          </a>
+          
+          <a href="#pricing" className="nav-link">
+            Pricing
+          </a>
+        </div>
+
+        {/* CTA buttons */}
+        <div className="nav-cta-group desktop-only">
+          <a href="#contact" className="btn-primary" style={{ padding: '8px 18px', fontSize: '14px' }}>
+            Book a Demo
           </a>
         </div>
 
@@ -69,22 +76,12 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-content">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="mobile-nav-link"
-              onClick={closeMobileMenu}
-            >
-              {link.name}
-            </a>
-          ))}
-          <a 
-            href="#contact" 
-            className="mobile-nav-cta"
-            onClick={closeMobileMenu}
-          >
-            Start a Project
+          <a href="#why" className="mobile-nav-link" onClick={closeMobileMenu}>Why Skyline</a>
+          <a href="#reviews" className="mobile-nav-link" onClick={closeMobileMenu}>Reviews</a>
+          <a href="#services" className="mobile-nav-link" onClick={closeMobileMenu}>Services</a>
+          <a href="#pricing" className="mobile-nav-link" onClick={closeMobileMenu}>Pricing</a>
+          <a href="#contact" className="mobile-nav-cta" onClick={closeMobileMenu}>
+            Book a Demo
           </a>
         </div>
       </div>

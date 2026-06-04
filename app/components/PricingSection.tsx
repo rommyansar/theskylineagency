@@ -2,59 +2,59 @@
 
 import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
-import { submitOnboarding } from '../actions/onboarding';
+import { submitPricingLead } from '../actions/onboarding';
 
 export default function PricingSection() {
-  const [activeTab, setActiveTab] = useState<'app' | 'website' | 'software' | 'ai'>('website');
   const sectionRef = useReveal();
   
-  const [checkoutPkg, setCheckoutPkg] = useState<{name: string, price: string} | null>(null);
-  const [formStep, setFormStep] = useState<'form' | 'qr'>('form');
+  const [selectedPlan, setSelectedPlan] = useState<{name: string, price: string} | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // Checkout form states
-  const [checkoutForm, setCheckoutForm] = useState({
+  // Lead form states
+  const [leadForm, setLeadForm] = useState({
     name: '',
     email: '',
     phone: '',
-    details: '',
+    requirements: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const handleContinue = (pkgName: string, pkgPrice: string) => {
-    setCheckoutPkg({ name: pkgName, price: pkgPrice });
-    setFormStep('form');
-    setCheckoutForm({ name: '', email: '', phone: '', details: '' });
+  const handlePlanClick = (pkgName: string, pkgPrice: string) => {
+    const formattedPrice = pkgPrice === 'Custom Pricing' ? 'Custom Pricing' : `$${pkgPrice}/user/month`;
+    setSelectedPlan({ name: pkgName, price: formattedPrice });
+    setIsSuccess(false);
+    setLeadForm({ name: '', email: '', phone: '', requirements: '' });
     setSubmitError('');
   };
 
-  const closeCheckout = () => {
-    setCheckoutPkg(null);
+  const closeForm = () => {
+    setSelectedPlan(null);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setCheckoutForm(prev => ({ ...prev, [name]: value }));
+    setLeadForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckoutSubmit = async (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!checkoutPkg) return;
+    if (!selectedPlan) return;
     setIsSubmitting(true);
     setSubmitError('');
 
     try {
-      const res = await submitOnboarding({
-        name: checkoutForm.name,
-        email: checkoutForm.email,
-        company: checkoutForm.phone ? `Phone: ${checkoutForm.phone}` : 'N/A',
-        projectType: `Package: ${checkoutPkg.name}`,
-        budget: `Price: US$${checkoutPkg.price}`,
-        details: checkoutForm.details,
+      const res = await submitPricingLead({
+        planName: selectedPlan.name,
+        planPrice: selectedPlan.price,
+        name: leadForm.name,
+        email: leadForm.email,
+        phone: leadForm.phone,
+        requirements: leadForm.requirements,
       });
 
       if (res.success) {
-        setFormStep('qr');
+        setIsSuccess(true);
       } else {
         setSubmitError(res.error || 'Failed to submit. Please try again.');
       }
@@ -65,232 +65,62 @@ export default function PricingSection() {
     }
   };
 
-  const appPackages = [
+  const packages = [
     {
-      name: 'Silver Mobile APP Package',
-      price: '150',
-      description: "Basic and Static Mobile App with 5 Screen (No API Integration) Figma to Flutter Mobile App",
-      delivery: "6-day delivery",
-      revisions: "Unlimited Revisions",
+      name: 'Starter',
+      price: '29',
+      billing: '/user/month',
+      description: "Essential tools for standardizing your firm's basic task and client tracking.",
       isPopular: false,
       features: [
-        { text: "Functional Android app", included: true },
-        { text: "Functional IOS App", included: true },
-        { text: "App design", included: false },
-        { text: "App submission", included: false },
-        { text: "App icon", included: false },
-        { text: "Splash screen", included: true },
-        { text: "Ad network integration", included: false },
-        { text: "Source code", included: true },
+        'Task Management',
+        'Client Management',
+        'Basic Workflows',
+        'Email Integration'
       ]
     },
     {
-      name: 'Gold Mobile APP Package',
-      price: '750',
-      description: "Medium Sized App with 10-15 Screens involving Responsive UI (Client's Provided API's Integration)",
-      delivery: "14-day delivery",
-      revisions: "Unlimited Revisions",
+      name: 'Professional',
+      price: '59',
+      billing: '/user/month',
+      description: "Scale your operations with advanced workflows, collaboration, and time tracking.",
       isPopular: true,
       features: [
-        { text: "Functional Android app", included: true },
-        { text: "Functional IOS App", included: true },
-        { text: "App design", included: true },
-        { text: "App submission", included: true },
-        { text: "App icon", included: true },
-        { text: "Splash screen", included: true },
-        { text: "Ad network integration", included: true },
-        { text: "Source code", included: true },
+        'Everything in Starter',
+        'Workflow Automation',
+        'Team Collaboration',
+        'Time Tracking',
+        'Reporting Dashboard'
       ]
     },
     {
-      name: 'Platinum Mobile APP Package',
-      price: '1,500',
-      description: "Customizable 20-25 Screens App Development + API integration + Responsive UI + Admin Panel",
-      delivery: "30-day delivery",
-      revisions: "Unlimited Revisions",
+      name: 'Business',
+      price: '99',
+      billing: '/user/month',
+      description: "Unlock advanced AI automations, reporting insights, and a client portal.",
       isPopular: false,
       features: [
-        { text: "Functional Android app", included: true },
-        { text: "Functional IOS App", included: true },
-        { text: "App design", included: true },
-        { text: "App submission", included: true },
-        { text: "App icon", included: true },
-        { text: "Splash screen", included: true },
-        { text: "Ad network integration", included: true },
-        { text: "Source code", included: true },
+        'Everything in Professional',
+        'AI Automation',
+        'Advanced Reporting',
+        'Client Portal',
+        'Priority Support'
+      ]
+    },
+    {
+      name: 'Enterprise',
+      price: 'Custom Pricing',
+      billing: '',
+      description: "Tailored solutions, dedicated support, and custom integrations for large teams.",
+      isPopular: false,
+      features: [
+        'Unlimited Users',
+        'Custom Integrations',
+        'Dedicated Support',
+        'Onboarding & Training'
       ]
     }
   ];
-
-  const websitePackages = [
-    {
-      name: 'Metro Path',
-      price: '100',
-      description: "Basic website up to 1 pages following your design and referece no API integration",
-      delivery: "3-day delivery",
-      revisions: "Unlimited Revisions",
-      isPopular: false,
-      features: [
-        { text: "Functional website", included: true },
-        { text: "1 page", included: true },
-        { text: "Content upload", included: true },
-        { text: "5 plugins/extensions", included: true },
-        { text: "E-commerce functionality", included: false },
-        { text: "1 product", included: true },
-        { text: "Payment Integration", included: true },
-        { text: "Opt-in form", included: false },
-        { text: "Autoresponder integration", included: false },
-        { text: "Speed optimization", included: false },
-        { text: "Hosting setup", included: true },
-        { text: "Social media icons", included: true },
-      ]
-    },
-    {
-      name: 'Metro Ways',
-      price: '280',
-      description: "Business website following clients design 3-5 pages basic API integration",
-      delivery: "10-day delivery",
-      revisions: "Unlimited Revisions",
-      isPopular: true,
-      features: [
-        { text: "Functional website", included: true },
-        { text: "3 pages", included: true },
-        { text: "Content upload", included: true },
-        { text: "8 plugins/extensions", included: true },
-        { text: "E-commerce functionality", included: true },
-        { text: "5 products", included: true },
-        { text: "Payment Integration", included: true },
-        { text: "Opt-in form", included: true },
-        { text: "Autoresponder integration", included: false },
-        { text: "Speed optimization", included: true },
-        { text: "Hosting setup", included: true },
-        { text: "Social media icons", included: true },
-      ]
-    },
-    {
-      name: 'Metro Lines',
-      price: '480',
-      description: "Scalable website development following your design basic API integration (Customizable)",
-      delivery: "14-day delivery",
-      revisions: "Unlimited Revisions",
-      isPopular: false,
-      features: [
-        { text: "Functional website", included: true },
-        { text: "6 pages", included: true },
-        { text: "Content upload", included: true },
-        { text: "10 plugins/extensions", included: true },
-        { text: "E-commerce functionality", included: true },
-        { text: "10 products", included: true },
-        { text: "Payment Integration", included: true },
-        { text: "Opt-in form", included: true },
-        { text: "Autoresponder integration", included: true },
-        { text: "Speed optimization", included: true },
-        { text: "Hosting setup", included: true },
-        { text: "Social media icons", included: true },
-      ]
-    }
-  ];
-
-  const softwarePackages = [
-    {
-      name: 'Starter Mobile Friendly Website',
-      price: '350',
-      description: "Basic Static website price where it will display 3 pages",
-      delivery: "10-day delivery",
-      revisions: "1 Revision",
-      isPopular: false,
-      features: [
-        { text: "3 pages", included: true },
-        { text: "Design customization", included: true },
-        { text: "Content upload", included: false },
-        { text: "Responsive design", included: true },
-        { text: "Source code", included: true },
-      ]
-    },
-    {
-      name: 'Advance Mobile Friendly Website',
-      price: '500',
-      description: "Basic Package + Up to 8 Pages + Google Map & Analytics Integration",
-      delivery: "21-day delivery",
-      revisions: "3 Revisions",
-      isPopular: true,
-      features: [
-        { text: "8 pages", included: true },
-        { text: "Design customization", included: true },
-        { text: "Content upload", included: false },
-        { text: "Responsive design", included: true },
-        { text: "Source code", included: true },
-      ]
-    },
-    {
-      name: 'Premium Mobile Friendly Website',
-      price: '995',
-      description: "Standard Package + 12 Pages, Payment Gateways, 15 Days free support,",
-      delivery: "30-day delivery",
-      revisions: "9 Revisions",
-      isPopular: false,
-      features: [
-        { text: "10 pages", included: true },
-        { text: "Design customization", included: true },
-        { text: "Content upload", included: true },
-        { text: "Responsive design", included: true },
-        { text: "Source code", included: true },
-      ]
-    }
-  ];
-
-  const aiPackages = [
-    {
-      name: 'AI Feature Integration',
-      price: '250',
-      description: "Add an AI feature (chatbot, automation, or GPT) to your web app.",
-      delivery: "6-day delivery",
-      revisions: "1 Revision",
-      isPopular: false,
-      features: [
-        { text: "Functional Web App", included: false },
-        { text: "Desktop Application", included: false },
-        { text: "AI model integration", included: true },
-        { text: "AI Model Fine-tuning", included: false },
-        { text: "Chatbot integration", included: true },
-        { text: "Source Code", included: true },
-      ]
-    },
-    {
-      name: 'AI Web Application',
-      price: '300',
-      description: "Custom AI powered web application with automation features, authentication, and API integrations.",
-      delivery: "10-day delivery",
-      revisions: "2 Revisions",
-      isPopular: true,
-      features: [
-        { text: "Functional Web App", included: true },
-        { text: "Desktop Application", included: false },
-        { text: "AI model integration", included: true },
-        { text: "AI Model Fine-tuning", included: true },
-        { text: "Chatbot integration", included: true },
-        { text: "Source Code", included: true },
-      ]
-    },
-    {
-      name: 'AI SaaS Platform',
-      price: '350',
-      description: "A scalable AI SaaS with automation, GPT, database, and production deployment.",
-      delivery: "14-day delivery",
-      revisions: "5 Revisions",
-      isPopular: false,
-      features: [
-        { text: "Functional Web App", included: true },
-        { text: "Desktop Application", included: true },
-        { text: "AI model integration", included: true },
-        { text: "AI Model Fine-tuning", included: true },
-        { text: "Chatbot integration", included: true },
-        { text: "Source Code", included: true },
-      ]
-    }
-  ];
-
-  const packages = activeTab === 'app' ? appPackages : activeTab === 'software' ? softwarePackages : activeTab === 'ai' ? aiPackages : websitePackages;
 
   return (
     <section className="pricing-section" id="pricing" ref={sectionRef}>
@@ -298,33 +128,6 @@ export default function PricingSection() {
         <div className="section-header reveal" style={{ textAlign: 'center' }}>
           <span className="section-label">Investment</span>
           <h2 className="section-title">Clear, Transparent Pricing</h2>
-        </div>
-
-        <div className="pricing-tabs reveal reveal-delay-1">
-          <button
-            className={`pricing-tab ${activeTab === 'website' ? 'active' : ''}`}
-            onClick={() => setActiveTab('website')}
-          >
-            Website Development
-          </button>
-          <button
-            className={`pricing-tab ${activeTab === 'app' ? 'active' : ''}`}
-            onClick={() => setActiveTab('app')}
-          >
-            App Development
-          </button>
-          <button
-            className={`pricing-tab ${activeTab === 'software' ? 'active' : ''}`}
-            onClick={() => setActiveTab('software')}
-          >
-            Custom SaaS & Software
-          </button>
-          <button
-            className={`pricing-tab ${activeTab === 'ai' ? 'active' : ''}`}
-            onClick={() => setActiveTab('ai')}
-          >
-            AI & Automation
-          </button>
         </div>
 
         <div className="pricing-grid">
@@ -335,54 +138,32 @@ export default function PricingSection() {
               <div className="pricing-header">
                 <h3 className="pricing-name">{pkg.name}</h3>
                 <div className="pricing-price-wrap">
-                  <span className="pricing-currency">US$</span>
-                  <span className="pricing-price">{pkg.price}</span>
+                  {pkg.price !== 'Custom Pricing' && <span className="pricing-currency">US$</span>}
+                  <span className="pricing-price" style={pkg.price === 'Custom Pricing' ? { fontSize: '38px', letterSpacing: '-0.02em', marginTop: '4px' } : {}}>{pkg.price}</span>
+                  {pkg.billing && <span className="pricing-billing" style={{ alignSelf: 'flex-end', marginBottom: '8px', fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 600 }}>{pkg.billing}</span>}
                 </div>
                 <p className="pricing-desc">{pkg.description}</p>
-              </div>
-
-              <div className="pricing-meta">
-                <div className="pricing-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  <span>{pkg.delivery}</span>
-                </div>
-                <div className="pricing-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-9.27l-5.34 5.34"></path>
-                  </svg>
-                  <span>{pkg.revisions}</span>
-                </div>
               </div>
 
               <div className="pricing-features">
                 <h4 className="pricing-features-title">What&apos;s Included</h4>
                 <ul className="pricing-features-list">
                   {pkg.features.map((feature, j) => (
-                    <li key={j} className={`pricing-feature-item ${feature.included ? 'included' : 'excluded'}`}>
+                    <li key={j} className="pricing-feature-item included">
                       <span className="feature-icon">
-                        {feature.included ? (
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                          </svg>
-                        ) : (
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-muted">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                          </svg>
-                        )}
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-accent" style={{ color: 'var(--accent-teal)' }}>
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                       </span>
-                      <span className="feature-text">{feature.text}</span>
+                      <span className="feature-text">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="pricing-action">
-                <button className="pricing-button" onClick={() => handleContinue(pkg.name, pkg.price)}>
-                  Continue
+                <button className="pricing-button" onClick={() => handlePlanClick(pkg.name, pkg.price)}>
+                  {pkg.price === 'Custom Pricing' ? 'Contact Us' : 'Get Started'}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cta-arrow">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -394,13 +175,13 @@ export default function PricingSection() {
         </div>
       </div>
 
-      {/* Checkout Modal */}
-      {checkoutPkg && (
-        <div className="checkout-overlay" onClick={closeCheckout}>
-          <div className="checkout-modal" onClick={e => e.stopPropagation()}>
+      {/* Lead Form Popup Modal */}
+      {selectedPlan && (
+        <div className="checkout-overlay" onClick={closeForm}>
+          <div className="checkout-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '480px' }}>
             <div className="checkout-header">
-              <h3>Secure Checkout</h3>
-              <button className="checkout-close" onClick={closeCheckout}>
+              <h3>{selectedPlan.name} Plan Request</h3>
+              <button className="checkout-close" onClick={closeForm}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -409,85 +190,100 @@ export default function PricingSection() {
             </div>
             
             <div className="checkout-body">
-              <div className="checkout-pkg-info">
-                <div className="checkout-pkg-name">{checkoutPkg.name}</div>
-                <div className="checkout-pkg-price">US${checkoutPkg.price}</div>
+              <div className="checkout-pkg-info" style={{ backgroundColor: '#f5f5f5', padding: '16px', borderRadius: '8px', marginBottom: '20px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '4px', letterSpacing: '0.05em' }}>Selected Plan</div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 800, fontSize: '18px', color: '#121212' }}>{selectedPlan.name}</span>
+                  <span style={{ fontWeight: 800, color: 'var(--accent-teal-dark, #0d9488)' }}>{selectedPlan.price}</span>
+                </div>
               </div>
 
-              {formStep === 'form' ? (
-                <form className="checkout-form" onSubmit={handleCheckoutSubmit}>
+              {!isSuccess ? (
+                <form className="checkout-form" onSubmit={handleLeadSubmit}>
                   {submitError && (
                     <div className="checkout-error-msg" style={{ color: '#ff4d4d', fontSize: '13px', marginBottom: '16px', background: 'rgba(255, 77, 77, 0.08)', padding: '10px 14px', borderRadius: '8px', border: '1px solid rgba(255, 77, 77, 0.15)' }}>
                       {submitError}
                     </div>
                   )}
                   <div className="form-group">
-                    <label htmlFor="checkout-name">Full Name *</label>
+                    <label htmlFor="lead-name">Name *</label>
                     <input 
                       type="text" 
-                      id="checkout-name"
+                      id="lead-name"
                       name="name" 
                       required 
-                      value={checkoutForm.name}
+                      value={leadForm.name}
                       onChange={handleInputChange}
-                      placeholder="John Doe" 
+                      placeholder="John Smith" 
                       disabled={isSubmitting}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="checkout-email">Email Address *</label>
+                    <label htmlFor="lead-email">Email Address *</label>
                     <input 
                       type="email" 
-                      id="checkout-email"
+                      id="lead-email"
                       name="email" 
                       required 
-                      value={checkoutForm.email}
+                      value={leadForm.email}
                       onChange={handleInputChange}
-                      placeholder="john@company.com" 
+                      placeholder="john@example.com" 
                       disabled={isSubmitting}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="checkout-phone">Phone Number (Optional)</label>
+                    <label htmlFor="lead-phone">Phone Number (Optional)</label>
                     <input 
                       type="tel" 
-                      id="checkout-phone"
+                      id="lead-phone"
                       name="phone" 
-                      value={checkoutForm.phone}
+                      value={leadForm.phone}
                       onChange={handleInputChange}
-                      placeholder="+1 (555) 000-0000" 
+                      placeholder="+1 (555) 123-4567" 
                       disabled={isSubmitting}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="checkout-details">Project Details *</label>
+                    <label htmlFor="lead-requirements">Requirements / Message (Optional)</label>
                     <textarea 
-                      id="checkout-details"
-                      name="details" 
-                      required 
+                      id="lead-requirements"
+                      name="requirements" 
                       rows={3} 
-                      value={checkoutForm.details}
+                      value={leadForm.requirements}
                       onChange={handleInputChange}
-                      placeholder="Tell us briefly about your requirements..."
+                      placeholder="Tell us about your team size, custom requirement needs, or goals..."
                       disabled={isSubmitting}
                     />
                   </div>
-                  <button type="submit" className="checkout-submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Saving request...' : 'Proceed to Payment'}
+                  <button type="submit" className="checkout-submit" disabled={isSubmitting} style={{ backgroundColor: 'var(--accent-teal)', color: '#000000', fontWeight: '800' }}>
+                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
                   </button>
                 </form>
               ) : (
-                <div className="qr-view">
-                  <h4>Scan to Pay</h4>
-                  <p>Please scan the QR code to complete the payment for your project.</p>
-                  
-                  <div className="qr-image-wrap">
-                    <img src="/qr-code.jpg" alt="Payment QR Code" />
+                <div className="qr-view" style={{ textAlign: 'center', padding: '20px 0' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'rgba(13, 148, 136, 0.1)', color: '#0d9488', marginBottom: '16px' }}>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                   </div>
-                  
-                  <div className="qr-note">
-                    After successful payment, our team will review your submitted details and contact you within 24 hours.
-                  </div>
+                  <h4 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: '#121212' }}>Request Received!</h4>
+                  <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>
+                    Thank you for your interest. Our team will review your requirements and reach out to you shortly.
+                  </p>
+                  <button 
+                    onClick={closeForm} 
+                    style={{ 
+                      padding: '10px 24px', 
+                      backgroundColor: '#121212', 
+                      color: '#FFFFFF', 
+                      border: 'none', 
+                      borderRadius: '8px', 
+                      fontWeight: 700, 
+                      cursor: 'pointer' 
+                    }}
+                  >
+                    Close
+                  </button>
                 </div>
               )}
             </div>
