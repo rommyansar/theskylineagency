@@ -35,9 +35,9 @@ export default function Footer() {
           <div>
             <h4 className="footer-title">Why Skyline</h4>
             <ul className="footer-links">
-              <li><a href="#why-visibility">Visibility & Control</a></li>
-              <li><a href="#why-automation">Automation & Efficiency</a></li>
-              <li><a href="#why-collaboration">Collaboration & Connectivity</a></li>
+              <li><a href="/why#why-visibility">Visibility & Control</a></li>
+              <li><a href="/why#why-automation">Automation & Efficiency</a></li>
+              <li><a href="/why#why-collaboration">Collaboration & Connectivity</a></li>
             </ul>
           </div>
 
@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="#services">Services Overview</a></li>
               <li><a href="#reviews">Customer Reviews</a></li>
-              <li><a href="#pricing">Pricing Plans</a></li>
+              <li><a href="/pricing">Pricing Plans</a></li>
             </ul>
           </div>
 

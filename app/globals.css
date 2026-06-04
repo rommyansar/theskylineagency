@@ -197,7 +197,7 @@ a {
 }
 
 .nav-logo .accent-dot {
-  color: var(--accent-teal);
+  color: #FFFFFF;
 }
 
 .nav-links {
@@ -224,8 +224,8 @@ a {
 }
 
 .btn-primary {
-  background-color: var(--accent-teal);
-  color: #000000;
+  background-color: #F18978;
+  color: #121212;
   font-weight: 600;
   padding: 12px 24px;
   border-radius: var(--radius-md);
@@ -239,8 +239,9 @@ a {
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-teal-hover);
+  background-color: #df7867;
   transform: translateY(-1px);
+  color: #121212;
 }
 
 .btn-outline {
@@ -781,7 +782,7 @@ a {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr repeat(5, 1fr);
+  grid-template-columns: 2fr repeat(3, 1fr);
   gap: 40px;
   margin-bottom: 80px;
 }
@@ -826,7 +827,7 @@ a {
 }
 
 .footer-logo .accent-dot {
-  color: var(--accent-teal);
+  color: #FFFFFF;
 }
 
 .footer-desc {
@@ -1281,6 +1282,50 @@ a {
   z-index: 2;
 }
 
+.pill-form-container {
+  display: flex;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.pill-form-input {
+  flex: 1;
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-right: none !important;
+  border-radius: 100px 0 0 100px !important;
+  height: 56px;
+  padding: 0 24px;
+  font-size: 16px;
+  color: #121212 !important;
+  outline: none;
+}
+
+.pill-form-btn {
+  background-color: #F18978 !important;
+  color: #121212 !important;
+  border: none;
+  border-radius: 0 100px 100px 0 !important;
+  height: 56px;
+  padding: 0 36px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.pill-form-btn:hover:not(:disabled) {
+  background-color: #df7867 !important;
+}
+
+.pill-form-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .talk-cta-badges-row {
   display: flex;
   justify-content: center;
@@ -1288,6 +1333,58 @@ a {
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
+}
+
+.talk-cta-badge {
+  width: 130px;
+  height: 140px;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.talk-cta-badge:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 576px) {
+  .pill-form-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+  }
+  
+  .pill-form-input {
+    border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 100px !important;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .pill-form-btn {
+    border-radius: 100px !important;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .talk-cta-badges-row {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .talk-cta-badge {
+    width: calc(50% - 10px);
+    height: 130px;
+  }
 }
 
 /* ===== HIGH-FIDELITY PRODUCT DASHBOARD PREVIEW ===== */
@@ -2992,7 +3089,7 @@ a {
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  padding: 160px 72px 100px;
+  padding: 120px 72px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3042,6 +3139,7 @@ a {
 
 .hero-product-img {
   width: 100%;
+  max-height: 520px;
   height: auto;
   border-radius: 0;
   box-shadow: none;

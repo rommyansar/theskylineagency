@@ -3,8 +3,6 @@ import ClientChaseSection from "./components/ClientChaseSection";
 import OnboardingGrid from "./components/OnboardingGrid";
 import ThreePillarsSection from "./components/ThreePillarsSection";
 import PracticeManagementSection from "./components/PracticeManagementSection";
-import WhyChooseUs from "./components/WhyChooseUs";
-import PricingSection from "./components/PricingSection";
 import ReviewsSection from "./components/ReviewsSection";
 import TalkCTASection from "./components/TalkCTASection";
 import Footer from "./components/Footer";
@@ -27,12 +25,6 @@ export default function Home() {
 
         {/* Section 5: Practice Management Carousel (Sand/Light Gray theme) */}
         <PracticeManagementSection />
-
-        {/* Section 6: Why Choose Us (Why Skyline) */}
-        <WhyChooseUs />
-
-        {/* Section 7: Pricing Section */}
-        <PricingSection />
 
         {/* Section 8: Reviews & Social Proof */}
         <ReviewsSection />
