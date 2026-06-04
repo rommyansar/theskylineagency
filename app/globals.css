@@ -1732,29 +1732,120 @@ a {
 }
 
 .pillar-tab-btn {
+  position: relative;
   text-align: left;
-  background: none;
-  border: none;
-  padding: 16px 20px;
-  font-size: 18px;
-  font-weight: 800;
-  color: #8E8D8A;
-  border-left: 3px solid transparent;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 18px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #6E6D6A;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 0 8px 8px 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 14px;
   outline: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+.pillar-tab-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillar-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #F5F4F2;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #8E8D8A;
+}
+
+.pillar-tab-label {
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.pillar-tab-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #8E8D8A;
+}
+
+/* Hover state — make it feel alive */
 .pillar-tab-btn:hover {
-  color: #000000;
-  background-color: rgba(0, 203, 160, 0.02);
+  background: #FAFAF9;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #121212;
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
+.pillar-tab-btn:hover .pillar-tab-icon {
+  background: rgba(241, 137, 120, 0.08);
+  color: #F18978;
+}
+
+.pillar-tab-btn:hover .pillar-tab-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #F18978;
+}
+
+/* Active state — strong visual signal */
 .pillar-tab-btn.active {
-  color: #000000;
-  border-left: 3px solid var(--accent-teal);
-  background-color: rgba(0, 203, 160, 0.04);
+  background: linear-gradient(135deg, rgba(241, 137, 120, 0.06) 0%, rgba(241, 137, 120, 0.02) 100%);
+  border-color: rgba(241, 137, 120, 0.25);
+  color: #121212;
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(241, 137, 120, 0.1);
+}
+
+.pillar-tab-btn.active::before {
+  background: #F18978;
+  box-shadow: 0 0 12px rgba(241, 137, 120, 0.4);
+}
+
+.pillar-tab-btn.active .pillar-tab-icon {
+  background: #F18978;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(241, 137, 120, 0.3);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.pillar-tab-btn.active .pillar-tab-label {
+  color: #121212;
+  font-weight: 800;
+}
+
+.pillar-tab-btn.active .pillar-tab-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #F18978;
+}
+
+@keyframes iconPulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(241, 137, 120, 0.3); }
+  50% { box-shadow: 0 4px 20px rgba(241, 137, 120, 0.5); }
 }
 
 .pillar-active-content {
@@ -3016,18 +3107,40 @@ a {
     flex-direction: row !important;
     overflow-x: auto;
     white-space: nowrap;
-    border-bottom: 2px solid rgba(0,0,0,0.05);
+    border-bottom: none;
     padding-bottom: 8px;
+    gap: 10px !important;
   }
   .pillar-tab-btn {
-    border-left: none !important;
-    border-bottom: 3px solid transparent;
-    border-radius: 0 !important;
-    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    min-width: auto;
+    flex-shrink: 0;
+    transform: none !important;
+  }
+  .pillar-tab-btn:hover,
+  .pillar-tab-btn.active {
+    transform: none !important;
+  }
+  .pillar-tab-btn::before {
+    display: none;
+  }
+  .pillar-tab-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  .pillar-tab-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  .pillar-tab-arrow {
+    display: none;
   }
   .pillar-tab-btn.active {
-    border-bottom-color: var(--accent-teal) !important;
-    background-color: transparent;
+    border-color: rgba(241, 137, 120, 0.3) !important;
+    background: rgba(241, 137, 120, 0.06) !important;
   }
   .carousel-container {
     overflow-x: auto;

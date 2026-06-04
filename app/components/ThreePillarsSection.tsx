@@ -11,7 +11,14 @@ export default function ThreePillarsSection() {
     {
       id: 'automation' as TabId,
       label: 'Automation & Efficiency',
-      quote: '“Enabled us to be more efficient, productive and profitable.”',
+      number: '01',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+      ),
+      quote: '"Enabled us to be more efficient, productive and profitable."',
       author: 'G2 Review from Paul Sweeney, Pretium Solutions',
       desc: 'Get more out of every team member by automating tasks, standardizing common processes, scheduling data collection and scaling onboarding.',
       linkText: 'How Skyline saves each employee 18.5 hours a week',
@@ -20,7 +27,16 @@ export default function ThreePillarsSection() {
     {
       id: 'collaboration' as TabId,
       label: 'Collaboration & Connectivity',
-      quote: '“The perfect program for team collaboration and accountability.”',
+      number: '02',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      ),
+      quote: '"The perfect program for team collaboration and accountability."',
       author: 'G2 Review from Katherine White, Ivory Planning Group',
       desc: 'Unite the firm with one place to collaborate on email, clients, jobs and tasks. Get more work done together, whether people are remote or in the office.',
       linkText: 'How Skyline connects your team',
@@ -29,7 +45,14 @@ export default function ThreePillarsSection() {
     {
       id: 'visibility' as TabId,
       label: 'Visibility & Control',
-      quote: '“Finally in control of my practice.”',
+      number: '03',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      ),
+      quote: '"Finally in control of my practice."',
       author: 'G2 Review from Ali Redwood, TaxAssist Accountants',
       desc: 'Enjoy peace of mind knowing where every job stands, who’s working on what, and what’s being said to clients. No blind spots. Nothing falls through the cracks.',
       linkText: 'How Skyline puts you in control',
@@ -53,7 +76,13 @@ export default function ThreePillarsSection() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`pillar-tab-btn ${isActive ? 'active' : ''}`}
                   >
-                    {tab.label}
+                    <span className="pillar-tab-icon">{tab.icon}</span>
+                    <span className="pillar-tab-label">{tab.label}</span>
+                    <span className="pillar-tab-arrow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
                   </button>
                 );
               })}
