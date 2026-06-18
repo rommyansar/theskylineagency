@@ -216,30 +216,30 @@ export default function ThreePillarsSection() {
                   <div className="mockup-task-cards-list">
                     {[
                       {
-                        title: 'Client Onboarding',
+                        title: 'Client Portal Integration',
                         client: 'Pacific Coast Logistics',
-                        status: 'In Progress',
-                        budget: '3h 30m',
-                        actual: '1h 15m',
-                        remaining: '2h 15m',
+                        status: 'Active',
+                        budget: '30 Deliverables',
+                        actual: '24 Completed',
+                        remaining: '6 Pending',
                         colorClass: 'color-teal'
                       },
                       {
-                        title: 'Project Delivery',
+                        title: 'Custom Checkout API',
                         client: 'Farmer Fresh Markets',
-                        status: 'In Progress',
-                        budget: '2h',
-                        actual: '30m',
-                        remaining: '1h 30m',
+                        status: 'Testing',
+                        budget: '15 Milestones',
+                        actual: '12 Completed',
+                        remaining: '3 Pending',
                         colorClass: 'color-teal'
                       },
                       {
-                        title: 'API Database Sync',
+                        title: 'Database Sync Routine',
                         client: 'Harriet London Consulting',
                         status: 'In Progress',
-                        budget: '3h 30m',
-                        actual: '1h',
-                        remaining: '2h 30m',
+                        budget: '10 Modules',
+                        actual: '8 Completed',
+                        remaining: '2 Pending',
                         colorClass: 'color-purple'
                       }
                     ].map((card, idx) => (

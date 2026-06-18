@@ -13,16 +13,16 @@ export default function OnboardingGrid() {
                 <circle cx="12" cy="12" r="3" />
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
               </svg>
-              <h3>Bespoke Application Blueprinting</h3>
-              <p>We co-design your software's user flows, database structures, and specifications to align perfectly with your business operations.</p>
+              <h3>1. Discovery & Blueprinting</h3>
+              <p>We co-design your software's user flows, database structures, and requirements to align perfectly with your operations.</p>
             </div>
             
             <div className="onboarding-grid-item">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
-              <h3>Ongoing Support</h3>
-              <p>Benefit from weeks of implementation support and troubleshooting from your assigned success team.</p>
+              <h3>3. Full-Stack Engineering</h3>
+              <p>We build secure backend architectures and responsive frontends, integrating custom APIs and third-party tools.</p>
             </div>
             
             <div className="onboarding-grid-item">
@@ -30,8 +30,8 @@ export default function OnboardingGrid() {
                 <circle cx="12" cy="8" r="7" />
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
               </svg>
-              <h3>98% Satisfaction Rating</h3>
-              <p>Skyline has 98% positive reviews on G2.com and has been rated a Best Support category leader.</p>
+              <h3>2. Custom UX/UI Design</h3>
+              <p>We draft interactive mockups and user experiences styled around your brand, validating the design before coding starts.</p>
             </div>
 
             <div className="onboarding-grid-item">
@@ -41,8 +41,8 @@ export default function OnboardingGrid() {
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
-              <h3>Smooth Staff Adoption</h3>
-              <p>We conduct hands-on training sessions and provide clear documentation, ensuring your team transitions seamlessly to your new system.</p>
+              <h3>4. Deployment & SLA Support</h3>
+              <p>We deploy your web application to production, train your team, and provide ongoing hosting and service level support.</p>
             </div>
           </div>
 

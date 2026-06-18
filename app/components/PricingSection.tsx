@@ -68,8 +68,8 @@ export default function PricingSection() {
   const packages = [
     {
       name: 'Starter',
-      price: '29',
-      billing: '/user/month',
+      price: '5,000+',
+      billing: ' / project',
       description: "Essential design and development to digitize a single process or create a basic custom app.",
       isPopular: false,
       features: [
@@ -81,8 +81,8 @@ export default function PricingSection() {
     },
     {
       name: 'Professional',
-      price: '59',
-      billing: '/user/month',
+      price: '12,000+',
+      billing: ' / project',
       description: "Full custom web application development, including API integrations and a custom dashboard.",
       isPopular: true,
       features: [
@@ -94,8 +94,8 @@ export default function PricingSection() {
     },
     {
       name: 'Business',
-      price: '99',
-      billing: '/user/month',
+      price: '25,000+',
+      billing: ' / project',
       description: "Enterprise-grade software complete with AI automation features and a dedicated client portal.",
       isPopular: false,
       features: [

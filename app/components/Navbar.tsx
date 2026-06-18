@@ -119,7 +119,7 @@ export default function Navbar() {
           {/* CTA buttons */}
           <div className="nav-cta-group desktop-only">
             <a href="#contact" className="btn-primary" style={{ padding: '8px 18px', fontSize: '14px' }} onClick={openDemoModal}>
-              Book a Demo
+              Start a Project
             </a>
           </div>
 
@@ -143,7 +143,7 @@ export default function Navbar() {
             <a href={isHome ? '#services' : '/#services'} className="mobile-nav-link" onClick={closeMobileMenu}>Services</a>
             <a href="/pricing" className="mobile-nav-link" onClick={closeMobileMenu}>Pricing</a>
             <a href="#contact" className="mobile-nav-cta" onClick={(e) => { closeMobileMenu(); openDemoModal(e); }}>
-              Book a Demo
+              Start a Project
             </a>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function Navbar() {
         <div className="checkout-overlay" onClick={closeDemoModal}>
           <div className="checkout-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '480px' }}>
             <div className="checkout-header">
-              <h3>Book a Demo</h3>
+              <h3>Start a Project</h3>
               <button className="checkout-close" onClick={closeDemoModal}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -234,7 +234,7 @@ export default function Navbar() {
                   </div>
                   <h4 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: '#121212' }}>Request Received!</h4>
                   <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>
-                    Thank you for booking a demo. Our team will review your details and reach out to schedule your live walkthrough shortly.
+                    Thank you for reaching out. Our team will review your project requirements and get in touch to schedule a project discovery consultation shortly.
                   </p>
                   <button 
                     onClick={closeDemoModal} 

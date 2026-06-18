@@ -33,9 +33,9 @@ export default function TalkCTASection() {
       <div className="spheres-bg-right"></div>
 
       <div className="section-container">
-        <h2 className="talk-cta-title">Let's talk about your custom software needs.</h2>
+        <h2 className="talk-cta-title">Ready to build your custom application?</h2>
         <p className="talk-cta-sub">
-          Get started by becoming a Skyline customer and start a live chat with our team.
+          Get in touch with our engineering team to discuss your project requirements and receive a custom estimate.
         </p>
 
         {/* Pill Form */}
@@ -54,7 +54,7 @@ export default function TalkCTASection() {
               className="pill-form-btn" 
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Book a Demo'}
+              {isSubmitting ? 'Sending...' : 'Get a Proposal'}
             </button>
           </form>
         </div>

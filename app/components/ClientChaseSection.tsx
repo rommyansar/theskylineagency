@@ -78,7 +78,7 @@ export default function ClientChaseSection() {
 
           {/* Right Column: Copy & Content */}
           <div className="chase-right-col">
-            <h2 className="chase-title">Automate manual follow-ups</h2>
+            <h2 className="chase-title">Custom Client Portals & API Workflows</h2>
             
             <p className="chase-desc">
               Let your custom system handle client follow-ups. We build bespoke client portals and automated notifications directly into your platforms. Clients know exactly what files or approvals they need to provide, keeping your projects on track.

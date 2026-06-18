@@ -16,7 +16,7 @@ export default function HeroSection() {
     try {
       const res = await submitDemoRequest(email);
       if (res.success) {
-        alert(`Thank you! Demo request booked for: ${email}`);
+        alert(`Thank you! Project request sent for: ${email}`);
         setEmail('');
       } else {
         alert(`Could not send request: ${res.error}`);
@@ -61,7 +61,7 @@ export default function HeroSection() {
                 className="hero-pill-submit-btn"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Book a Demo'}
+                {isSubmitting ? 'Sending...' : 'Get a Proposal'}
               </button>
             </form>
           </div>

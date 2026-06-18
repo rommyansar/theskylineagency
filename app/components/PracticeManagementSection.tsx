@@ -227,10 +227,10 @@ export default function PracticeManagementSection() {
         <div className="practice-mgmt-header">
           <div className="practice-mgmt-header-text">
             <h2 className="practice-mgmt-title">
-              Manage Your Entire Operations
+              Bespoke Web Applications We Build
             </h2>
             <p className="practice-mgmt-sub">
-              Bespoke digital platforms engineered to power your business workflows, clients, and revenue.
+              We design and engineer tailored software systems to power your operations, customer experiences, and revenue streams.
             </p>
           </div>
           

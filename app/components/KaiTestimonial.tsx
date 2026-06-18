@@ -10,10 +10,10 @@ interface TaskItem {
 
 export default function KaiTestimonial() {
   const [tasks, setTasks] = useState<TaskItem[]>([
-    { id: 1, text: 'Collect signed project contract', completed: true },
-    { id: 2, text: 'Request onboarding assets & guidelines', completed: true },
-    { id: 3, text: 'Set up client portal permissions', completed: false },
-    { id: 4, text: 'Schedule project kickoff call', completed: false },
+    { id: 1, text: '1. UI/UX Prototype Sign-Off', completed: true },
+    { id: 2, text: '2. Database Schema Integration', completed: true },
+    { id: 3, text: '3. Custom API & Backend Development', completed: false },
+    { id: 4, text: '4. App Store & Production Launch', completed: false },
   ]);
 
   const toggleTask = (id: number) => {
@@ -33,7 +33,7 @@ export default function KaiTestimonial() {
             <div style={{ position: 'relative' }}>
               <span className="quote-mark-large">“</span>
               <h2 className="testimonial-quote-text" style={{ position: 'relative', zIndex: 2 }}>
-                Built a custom application that fits our exact business rules and put us in complete control of our client delivery.
+                Skyline engineered a custom operational system that perfectly maps our client workflow. The development was fast, transparent, and built exactly to our specifications.
               </h2>
             </div>
 
@@ -61,8 +61,8 @@ export default function KaiTestimonial() {
             <div className="mockup-card-container">
               <div className="mockup-header">
                 <div>
-                  <h3 className="mockup-title">Client Portal Setup</h3>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>Custom Application Active</p>
+                  <h3 className="mockup-title">Custom App Milestones</h3>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>Development Sprints Active</p>
                 </div>
                 <span className="mockup-badge">Skyline AI</span>
               </div>
@@ -97,7 +97,7 @@ export default function KaiTestimonial() {
                   fontWeight: 700,
                   transition: 'color 0.3s'
                 }}>
-                  {tasks.every(t => t.completed) ? '✓ Ready to Launch' : '○ Running Automations'}
+                  {tasks.every(t => t.completed) ? '✓ Ready to Launch' : '○ In Active Development'}
                 </span>
               </div>
             </div>
