@@ -4212,3 +4212,87 @@ a {
     padding: 24px;
   }
 }
+
+/* ===== MINIMAL PREMIUM HERO OVERRIDES ===== */
+.hero-banner.minimal-hero {
+  min-height: 85vh;
+  padding: 200px 0 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-banner.minimal-hero .hero-banner-inner {
+  max-width: 1000px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+}
+
+.hero-banner.minimal-hero .hero-banner-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-banner.minimal-hero .hero-banner-heading {
+  font-size: clamp(48px, 6.5vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+
+.hero-banner.minimal-hero .hero-banner-desc {
+  font-size: 21px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 44px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-banner.minimal-hero .hero-cta-inline-wrap {
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hero-banner.minimal-hero .hero-pill-form {
+  width: 100%;
+}
+
+/* Subtle background grid pattern */
+.hero-banner.minimal-hero .hero-banner-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center;
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Decrease background image opacity for minimal hero to make text pop */
+.hero-banner.minimal-hero .hero-banner-bg {
+  opacity: 0.25;
+}
+
+/* Symmetric, dark radial background overlay to ensure maximum readability and soft vignette */
+.hero-banner.minimal-hero .hero-banner-overlay {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(13, 13, 13, 0.82) 0%,
+    rgba(13, 13, 13, 0.94) 70%,
+    #0D0D0D 100%
+  );
+}
