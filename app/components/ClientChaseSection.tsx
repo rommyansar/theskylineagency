@@ -1,91 +1,68 @@
 'use client';
 
-import { useState } from 'react';
-
 export default function ClientChaseSection() {
-  const [remindersEnabled, setRemindersEnabled] = useState(true);
-
   return (
     <section className="client-chase-section" id="client-chase">
       <div className="section-container">
         <div className="grid-two-col chase-grid">
           
-          {/* Left Column: Interactive Client Portal & Auto-Reminders Mockup Card */}
+          {/* Left Column: Mini Case Study Card */}
           <div className="chase-left-col">
-            <div className="reminders-card">
-              <div className="reminders-card-header">
-                <h3>Client Portal & Auto-Reminders</h3>
+            <div className="reminders-card" style={{ padding: '32px' }}>
+              {/* Industry Badge */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(0, 203, 160, 0.08)', padding: '6px 14px', borderRadius: '20px', marginBottom: '24px' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-teal)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hospitality</span>
               </div>
-              
-              <div className="reminders-card-body">
-                {/* Toggle Row */}
-                <div className="toggle-row">
-                  <button 
-                    type="button"
-                    className={`toggle-switch ${remindersEnabled ? 'active' : ''}`}
-                    onClick={() => setRemindersEnabled(!remindersEnabled)}
-                    aria-label="Toggle auto reminders"
-                  >
-                    <span className="toggle-slider"></span>
-                  </button>
-                  <span className="toggle-label">
-                    Automatically send <span className="text-blue-link">Milestone Alerts</span>
+
+              {/* Project Title */}
+              <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '12px', lineHeight: '1.3' }}>
+                Guest Reservation & Check-In Platform
+              </h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>
+                A fully custom booking engine and digital check-in system built for a boutique hotel group, replacing three separate legacy tools.
+              </p>
+
+              {/* Key Results */}
+              <div style={{ display: 'flex', gap: '20px', marginBottom: '24px' }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '28px', fontWeight: 800, color: 'var(--accent-teal)', lineHeight: 1 }}>4×</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px', fontWeight: 600 }}>Faster Booking</div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '28px', fontWeight: 800, color: '#F18978', lineHeight: 1 }}>60%</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px', fontWeight: 600 }}>Less Manual Work</div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '28px', fontWeight: 800, color: '#8B5CF6', lineHeight: 1 }}>12wk</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px', fontWeight: 600 }}>Delivery Time</div>
+                </div>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {['Next.js', 'PostgreSQL', 'Stripe API', 'Twilio SMS'].map((tech) => (
+                  <span key={tech} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', backgroundColor: 'var(--bg-primary)', padding: '4px 10px', borderRadius: '4px', border: '1px solid var(--border-light)' }}>
+                    {tech}
                   </span>
-                </div>
-
-                {/* Checklist items */}
-                <div className={`reminders-list ${remindersEnabled ? 'enabled' : 'disabled'}`}>
-                  <div className="reminder-item">
-                    <span className="reminder-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                    </span>
-                    <span className="reminder-text">Alert 7 days before milestone due-date</span>
-                  </div>
-
-                  <div className="reminder-item">
-                    <span className="reminder-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                    </span>
-                    <span className="reminder-text">SMS notification on due-date</span>
-                  </div>
-
-                  <div className="reminder-item">
-                    <span className="reminder-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                    </span>
-                    <span className="reminder-text">Daily follow-up for missing deliverables</span>
-                  </div>
-                </div>
-
-                {/* Save button */}
-                <div className="reminders-card-footer">
-                  <button type="button" className="btn-save">
-                    Save
-                  </button>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Right Column: Copy & Content */}
           <div className="chase-right-col">
-            <h2 className="chase-title">Custom Client Portals & API Workflows</h2>
+            <h2 className="chase-title">We Build What Off-the-Shelf Can&apos;t</h2>
             
             <p className="chase-desc">
-              Let your custom system handle client follow-ups. We build bespoke client portals and automated notifications directly into your platforms. Clients know exactly what files or approvals they need to provide, keeping your projects on track.
+              Generic software forces your team to adapt. We do the opposite — we study how your business actually runs, then engineer a custom web application that fits your exact workflow, clients, and operations.
             </p>
             
             <p className="chase-desc">
-              All uploads and form entries are automatically routed directly to your internal database or CRM, saving hours of manual data copy and filing.
+              From reservation systems and client portals to inventory platforms and internal tools — every application we deliver is designed, coded, and deployed specifically for you.
             </p>
           </div>
 

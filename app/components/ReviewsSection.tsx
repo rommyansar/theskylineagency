@@ -57,7 +57,7 @@ export default function ReviewsSection() {
               ))}
             </div>
             <span style={{ fontWeight: 700, fontSize: '15px', color: 'var(--text-primary)' }}>4.9/5 Rating</span>
-            <span style={{ color: 'var(--text-muted)', fontSize: '15px' }}>on G2, Capterra, and Trustpilot</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '15px' }}>based on 50+ client engagements</span>
           </div>
         </div>
 

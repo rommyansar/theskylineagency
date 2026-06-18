@@ -15,7 +15,7 @@ export default function TalkCTASection() {
     try {
       const res = await submitDemoRequest(email);
       if (res.success) {
-        alert(`Thank you! Demo request booked for: ${email}`);
+        alert(`Thank you! Your project inquiry has been sent for: ${email}`);
         setEmail('');
       } else {
         alert(`Could not send request: ${res.error}`);

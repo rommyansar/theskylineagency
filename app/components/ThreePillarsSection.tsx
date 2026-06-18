@@ -2,61 +2,62 @@
 
 import { useState } from 'react';
 
-type TabId = 'automation' | 'collaboration' | 'visibility';
+type TabId = 'portals' | 'platforms' | 'integrations';
 
 export default function ThreePillarsSection() {
-  const [activeTab, setActiveTab] = useState<TabId>('automation');
+  const [activeTab, setActiveTab] = useState<TabId>('portals');
 
   const tabs = [
     {
-      id: 'automation' as TabId,
-      label: 'Client & Customer Portals',
+      id: 'portals' as TabId,
+      label: 'Client-Facing Applications',
       number: '01',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
         </svg>
       ),
-      quote: '"Built a custom portal that fits our business rules perfectly."',
-      author: 'G2 Review from Paul Sweeney, Founder at Pretium Group',
-      desc: 'We design and develop secure, branded client portals where customers can book services, sign contracts, upload documents, and track milestones.',
-      linkText: 'How Skyline builds custom portals',
-      linkUrl: '#portal-case'
+      quote: '"They built exactly what we described — a booking platform that feels like it was always ours."',
+      author: 'Paul Sweeney, Founder at Pretium Group',
+      desc: 'We design and develop customer-facing web applications — booking platforms, client portals, e-commerce storefronts, and self-service dashboards — tailored to your brand and business logic.',
+      linkText: 'See how we build client applications',
+      linkUrl: '#case-studies'
     },
     {
-      id: 'collaboration' as TabId,
-      label: 'Internal Operations & CRMs',
+      id: 'platforms' as TabId,
+      label: 'Internal Business Platforms',
       number: '02',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+          <line x1="6" y1="6" x2="6.01" y2="6" />
+          <line x1="6" y1="18" x2="6.01" y2="18" />
         </svg>
       ),
-      quote: '"The perfect platform for team collaboration and operational control."',
-      author: 'G2 Review from Katherine White, Operations Director at Ivory Consulting',
-      desc: 'Centralize your databases, staff schedules, and internal routines. We engineer administrative panels and custom CRMs that align with how your team works.',
-      linkText: 'How Skyline builds operational tools',
-      linkUrl: '#collaboration-case'
+      quote: '"Our admin panel replaced three tools and cut onboarding time in half."',
+      author: 'Katherine White, Operations Director at Ivory Consulting',
+      desc: 'We engineer admin panels, staff management systems, and internal operations platforms that centralize your data, automate routine tasks, and give your team a single source of truth.',
+      linkText: 'See how we build internal platforms',
+      linkUrl: '#case-studies'
     },
     {
-      id: 'visibility' as TabId,
-      label: 'Analytics & Integrations',
+      id: 'integrations' as TabId,
+      label: 'APIs & System Integrations',
       number: '03',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-          <circle cx="12" cy="12" r="3" />
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
         </svg>
       ),
-      quote: '"Finally in complete control of our data and tools."',
-      author: 'G2 Review from Ali Redwood, Founder at Redwood Services',
-      desc: 'Connect your platforms to any third-party API, CRM, or payment gateway. Track utilization, budgets, and key business metrics from a single source of truth.',
-      linkText: 'How Skyline builds custom analytics dashboards',
-      linkUrl: '#visibility-case'
+      quote: '"They connected our payment gateway, CRM, and inventory in one week."',
+      author: 'Ali Redwood, Founder at Redwood Services',
+      desc: 'We connect your platforms to any third-party API — payment processors, CRMs, shipping providers, analytics tools — building robust middleware and data pipelines that keep your systems in sync.',
+      linkText: 'See how we build integrations',
+      linkUrl: '#case-studies'
     }
   ];
 
@@ -115,149 +116,131 @@ export default function ThreePillarsSection() {
             })}
           </div>
 
-          {/* Right Side: Mockup Display based on activeTab */}
+          {/* Right Side: Static Visual Mockups (no interactive product UIs) */}
           <div className="pillars-right-col">
             <div className="pillar-mockup-box">
               
-              {/* Tab 1: Automation Mockup */}
-              {activeTab === 'automation' && (
+              {/* Tab 1: Client Application — Browser mockup of a polished portal */}
+              {activeTab === 'portals' && (
                 <div className="pillar-mockup-content automation-mockup">
-                  <div className="mockup-header">
-                    <span className="mockup-header-title">Custom Client Portal</span>
-                    <button className="mockup-header-btn">Add Request</button>
+                  {/* Browser Chrome */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingBottom: '12px', borderBottom: '1px solid rgba(0,0,0,0.06)', marginBottom: '20px' }}>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FF5F56' }}></div>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FFBD2E' }}></div>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27C93F' }}></div>
+                    <span style={{ marginLeft: '8px', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>reservations.clientbrand.com</span>
                   </div>
-                  
-                  <div className="mockup-card-main">
-                    <div className="mockup-card-left">
-                      <div className="mockup-card-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                          <circle cx="8.5" cy="7" r="4" />
-                          <line x1="20" y1="8" x2="20" y2="14" />
-                          <line x1="23" y1="11" x2="17" y2="11" />
-                        </svg>
-                      </div>
+
+                  {/* App Header */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                    <div>
+                      <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)' }}>Upcoming Reservations</div>
+                      <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>3 confirmed this week</div>
+                    </div>
+                    <div style={{ padding: '6px 14px', backgroundColor: 'var(--accent-teal)', borderRadius: '6px', fontSize: '11px', fontWeight: 800, color: '#121212' }}>+ New Booking</div>
+                  </div>
+
+                  {/* Reservation Cards */}
+                  {[
+                    { guest: 'Sarah Mitchell', date: 'Jun 24 — Jun 27', room: 'Suite 402', status: 'Confirmed', color: 'var(--accent-teal)' },
+                    { guest: 'James Thornton', date: 'Jun 25 — Jun 28', room: 'Room 201', status: 'Checked In', color: '#8B5CF6' },
+                    { guest: 'Emma Rodriguez', date: 'Jun 26 — Jun 29', room: 'Suite 105', status: 'Pending', color: '#FFBD2E' },
+                  ].map((r, idx) => (
+                    <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 12px', backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px', marginBottom: '8px', borderLeft: `3px solid ${r.color}` }}>
                       <div>
-                        <h4 className="mockup-card-title">New Client Onboarding</h4>
-                        <span className="mockup-card-subtitle">Trigger: Signed Proposal</span>
+                        <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)' }}>{r.guest}</div>
+                        <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{r.date} · {r.room}</div>
                       </div>
+                      <span style={{ fontSize: '10px', fontWeight: 800, color: r.color, backgroundColor: `${r.color}15`, padding: '3px 8px', borderRadius: '4px' }}>{r.status}</span>
                     </div>
-                    <div className="mockup-card-badge">
-                      2 Automators
-                    </div>
-                  </div>
-
-                  {/* Visual Process Connector Nodes */}
-                  <div className="mockup-subtasks-flow">
-                    <div className="mockup-flow-node">
-                      <span>Auto-create checklist folder</span>
-                      <span className="node-status-done">Done</span>
-                    </div>
-                    <div className="mockup-flow-node">
-                      <span>Send client request form</span>
-                      <span className="node-status-pending">Triggered</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               )}
 
-              {/* Tab 2: Collaboration Mockup */}
-              {activeTab === 'collaboration' && (
+              {/* Tab 2: Internal Platform — Dashboard with charts */}
+              {activeTab === 'platforms' && (
                 <div className="pillar-mockup-content collaboration-mockup">
-                  <div className="mockup-header" style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '10px' }}>
-                    <span className="mockup-header-title">Operations Dashboard</span>
+                  {/* Browser Chrome */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingBottom: '12px', borderBottom: '1px solid rgba(0,0,0,0.06)', marginBottom: '16px' }}>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FF5F56' }}></div>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FFBD2E' }}></div>
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27C93F' }}></div>
+                    <span style={{ marginLeft: '8px', fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>admin.ivoryconsulting.com</span>
                   </div>
 
-                  <div className="mockup-chat-bubble-container">
-                    <div className="mockup-chat-row">
-                      <div className="mockup-chat-avatar avatar-red">KW</div>
-                      <div className="mockup-chat-body">
-                        <div className="mockup-chat-meta">
-                          <span className="mockup-chat-author">Katherine White</span>
-                          <span className="mockup-chat-time">10:42 AM</span>
-                        </div>
-                        <p className="mockup-chat-text">
-                          Hey team, did we get the proposal out? The client is asking for a timeline.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mockup-chat-action">
-                      <div className="mockup-action-left">
-                        <div className="mockup-chat-avatar avatar-teal">SG</div>
-                        <span className="mockup-action-text">
-                          Sara Goepel assigned task to Yohan Seimon
-                        </span>
-                      </div>
-                      <span className="mockup-action-time">10:44 AM</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Tab 3: Visibility Mockup */}
-              {activeTab === 'visibility' && (
-                <div className="pillar-mockup-content visibility-mockup">
-                  <div className="mockup-header" style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '8px' }}>
-                    <span className="mockup-header-title">Data Analytics Panel</span>
-                    <div className="mockup-header-stats">
-                      <div className="mockup-stat-item">
-                        <span className="stat-dot dot-teal"></span>
-                        <span>Sara Goepel (4)</span>
-                      </div>
-                      <div className="mockup-stat-item">
-                        <span className="stat-dot dot-purple"></span>
-                        <span>Yohan Seimon (2)</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Task Card list */}
-                  <div className="mockup-task-cards-list">
+                  {/* KPI Row */}
+                  <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
                     {[
-                      {
-                        title: 'Client Portal Integration',
-                        client: 'Pacific Coast Logistics',
-                        status: 'Active',
-                        budget: '30 Deliverables',
-                        actual: '24 Completed',
-                        remaining: '6 Pending',
-                        colorClass: 'color-teal'
-                      },
-                      {
-                        title: 'Custom Checkout API',
-                        client: 'Farmer Fresh Markets',
-                        status: 'Testing',
-                        budget: '15 Milestones',
-                        actual: '12 Completed',
-                        remaining: '3 Pending',
-                        colorClass: 'color-teal'
-                      },
-                      {
-                        title: 'Database Sync Routine',
-                        client: 'Harriet London Consulting',
-                        status: 'In Progress',
-                        budget: '10 Modules',
-                        actual: '8 Completed',
-                        remaining: '2 Pending',
-                        colorClass: 'color-purple'
-                      }
-                    ].map((card, idx) => (
-                      <div key={idx} className="mockup-task-card">
-                        <div className="task-card-header">
-                          <div>
-                            <span className="task-card-title">{card.title}</span>
-                            <span className="task-card-client">{card.client}</span>
-                          </div>
-                          <span className="task-card-status">{card.status}</span>
-                        </div>
-                        <div className="task-card-metrics">
-                          <span>Budget: <strong>{card.budget}</strong></span>
-                          <span>Actual: <strong>{card.actual}</strong></span>
-                          <span>Remaining: <strong className={card.colorClass}>{card.remaining}</strong></span>
-                        </div>
+                      { label: 'Active Projects', value: '24', change: '+3', color: 'var(--accent-teal)' },
+                      { label: 'Team Members', value: '12', change: '', color: '#8B5CF6' },
+                      { label: 'Avg Delivery', value: '8.2 wk', change: '-1.5', color: '#F18978' },
+                    ].map((kpi, idx) => (
+                      <div key={idx} style={{ flex: 1, padding: '12px', backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px', textAlign: 'center' }}>
+                        <div style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)' }}>{kpi.value}</div>
+                        <div style={{ fontSize: '10px', color: 'var(--text-muted)', marginTop: '2px', fontWeight: 600 }}>{kpi.label}</div>
+                        {kpi.change && <div style={{ fontSize: '10px', color: kpi.color, fontWeight: 800, marginTop: '4px' }}>{kpi.change}</div>}
                       </div>
                     ))}
+                  </div>
+
+                  {/* Mini Bar Chart */}
+                  <div style={{ padding: '12px', backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '10px' }}>PROJECTS DELIVERED — 2026</div>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', height: '60px' }}>
+                      {[35, 55, 45, 70, 60, 85].map((h, idx) => (
+                        <div key={idx} style={{ flex: 1, height: `${h}%`, backgroundColor: idx === 5 ? 'var(--accent-teal)' : 'rgba(0,0,0,0.06)', borderRadius: '3px' }}></div>
+                      ))}
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: 'var(--text-muted)', marginTop: '6px' }}>
+                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 3: Integrations — Architecture / Connection Diagram */}
+              {activeTab === 'integrations' && (
+                <div className="pillar-mockup-content visibility-mockup">
+                  <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                    <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>System Integration Map</div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Custom middleware connecting your business tools</div>
+                  </div>
+
+                  {/* Center Hub */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                    {/* Top Row - External Services */}
+                    <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+                      {['Stripe', 'Twilio', 'AWS S3'].map((svc) => (
+                        <div key={svc} style={{ padding: '8px 14px', backgroundColor: 'rgba(0,0,0,0.03)', borderRadius: '6px', fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', border: '1px solid rgba(0,0,0,0.06)' }}>{svc}</div>
+                      ))}
+                    </div>
+
+                    {/* Connector Lines */}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '24px' }}>
+                      {[0,1,2].map(i => (
+                        <div key={i} style={{ width: '2px', height: '20px', backgroundColor: 'var(--accent-teal)', opacity: 0.4 }}></div>
+                      ))}
+                    </div>
+
+                    {/* Central API Hub */}
+                    <div style={{ padding: '14px 28px', backgroundColor: 'var(--accent-teal)', borderRadius: '10px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '13px', fontWeight: 800, color: '#121212' }}>Your Custom API</div>
+                      <div style={{ fontSize: '10px', color: '#121212', opacity: 0.7 }}>Built by Skyline</div>
+                    </div>
+
+                    {/* Connector Lines */}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '24px' }}>
+                      {[0,1,2].map(i => (
+                        <div key={i} style={{ width: '2px', height: '20px', backgroundColor: '#8B5CF6', opacity: 0.4 }}></div>
+                      ))}
+                    </div>
+
+                    {/* Bottom Row - Internal Systems */}
+                    <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+                      {['Client Portal', 'Admin Panel', 'Analytics'].map((svc) => (
+                        <div key={svc} style={{ padding: '8px 14px', backgroundColor: 'rgba(139,92,246,0.08)', borderRadius: '6px', fontSize: '11px', fontWeight: 700, color: '#8B5CF6', border: '1px solid rgba(139,92,246,0.15)' }}>{svc}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
