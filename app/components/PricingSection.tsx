@@ -20,8 +20,8 @@ export default function PricingSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const handlePlanClick = (pkgName: string, pkgPrice: string) => {
-    const formattedPrice = pkgPrice === 'Custom Pricing' ? 'Custom Pricing' : `$${pkgPrice}/user/month`;
+  const handlePlanClick = (pkgName: string, pkgPrice: string, pkgBilling?: string) => {
+    const formattedPrice = pkgPrice === 'Custom Pricing' ? 'Custom Pricing' : `$${pkgPrice}${pkgBilling || ''}`;
     setSelectedPlan({ name: pkgName, price: formattedPrice });
     setIsSuccess(false);
     setLeadForm({ name: '', email: '', phone: '', requirements: '' });
@@ -68,7 +68,7 @@ export default function PricingSection() {
   const packages = [
     {
       name: 'Starter',
-      price: '5,000+',
+      price: '2,500+',
       billing: ' / project',
       description: "Essential design and development to digitize a single process or create a basic custom app.",
       isPopular: false,
@@ -81,7 +81,7 @@ export default function PricingSection() {
     },
     {
       name: 'Professional',
-      price: '12,000+',
+      price: '6,000+',
       billing: ' / project',
       description: "Full custom web application development, including API integrations and a custom dashboard.",
       isPopular: true,
@@ -94,7 +94,7 @@ export default function PricingSection() {
     },
     {
       name: 'Business',
-      price: '25,000+',
+      price: '12,500+',
       billing: ' / project',
       description: "Enterprise-grade software complete with AI automation features and a dedicated client portal.",
       isPopular: false,
@@ -160,7 +160,7 @@ export default function PricingSection() {
               </div>
 
               <div className="pricing-action">
-                <button className="pricing-button" onClick={() => handlePlanClick(pkg.name, pkg.price)}>
+                <button className="pricing-button" onClick={() => handlePlanClick(pkg.name, pkg.price, pkg.billing)}>
                   {pkg.price === 'Custom Pricing' ? 'Contact Us' : 'Get Started'}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cta-arrow">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
