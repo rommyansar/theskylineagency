@@ -7,7 +7,7 @@ export default function ExpertsSection() {
         <div className="experts-header">
           <h2 className="experts-title">Your Skyline Experts</h2>
           <p className="experts-sub">
-            Experienced practice management specialists committed to your success.
+            Experienced custom software architects and web developers committed to your success.
           </p>
         </div>
 
@@ -15,12 +15,12 @@ export default function ExpertsSection() {
           {/* Testimonial 1 */}
           <div className="expert-testimonial-card">
             <div className="expert-quote-col">
-              <span className="expert-label">PROCESS OPTIMIZATION</span>
+              <span className="expert-label">SOFTWARE ARCHITECTURE</span>
               <p className="expert-quote-text">
-                “Effective and efficient processes are a critical component of making your business scalable and maximizing profitability.”
+                “A custom web application should fit your business like a glove, not force you to change how you work.”
               </p>
               <h4 className="expert-quote-author">Ian Vacin</h4>
-              <p className="expert-quote-title">Co-Founder & Chief Partnerships Officer</p>
+              <p className="expert-quote-title">Chief Software Architect</p>
             </div>
             <div className="expert-avatar-col">
               <div className="expert-avatar-img">
@@ -35,12 +35,12 @@ export default function ExpertsSection() {
           {/* Testimonial 2 */}
           <div className="expert-testimonial-card">
             <div className="expert-quote-col">
-              <span className="expert-label">TEAM TRAINING</span>
+              <span className="expert-label">TECHNICAL EXECUTION</span>
               <p className="expert-quote-text">
-                “It’s important to have your team onboard early. Live group training is a key way of ensuring a smooth transition.”
+                “We work closely with your team from discovery to launch, delivering software that solves real operational challenges.”
               </p>
               <h4 className="expert-quote-author">Carla Caldwell</h4>
-              <p className="expert-quote-title">Skyline Expert</p>
+              <p className="expert-quote-title">Lead Web Developer</p>
             </div>
             <div className="expert-avatar-col">
               <div className="expert-avatar-img">

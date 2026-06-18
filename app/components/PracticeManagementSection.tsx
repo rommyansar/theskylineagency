@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-// Card 1 Mockup: AI Agents
+// Card 1 Mockup: AI & Automation
 const AIAgentsMockup = () => (
   <div className="mockup-container dark-theme">
     <div className="poly-bg-overlay"></div>
@@ -10,26 +10,26 @@ const AIAgentsMockup = () => (
       <div className="mockup-row">
         <div className="avatar avatar-sara">S</div>
         <div className="mockup-text-container">
-          <p className="mockup-text-muted">Sara assigned the task to <strong>AI Bookkeeper</strong></p>
+          <p className="mockup-text-muted">Sara assigned the task to <strong>AI Assistant</strong></p>
         </div>
       </div>
       <div className="mockup-row">
-        <div className="avatar avatar-bookkeeper">B</div>
+        <div className="avatar avatar-bookkeeper">A</div>
         <div className="mockup-text-container">
-          <p className="mockup-text-main"><strong>AI Bookkeeper</strong> connected to QuickBooks <span className="mockup-pulse-dot"></span></p>
-          <p className="mockup-text-sub">Analyzing transactions and balances...</p>
-          <p className="mockup-text-sub">Preparing workpaper...</p>
+          <p className="mockup-text-main"><strong>AI Assistant</strong> connected to project database <span className="mockup-pulse-dot"></span></p>
+          <p className="mockup-text-sub">Analyzing project deadlines and resources...</p>
+          <p className="mockup-text-sub">Preparing daily status report...</p>
         </div>
       </div>
       <div className="mockup-chat-bubble">
-        <div className="chat-avatar">B</div>
+        <div className="chat-avatar">A</div>
         <div className="chat-content">
           <p className="chat-message">
-            <strong>AI Bookkeeper</strong> <span className="mention">@Sara</span> I have created the Q1 workpaper for Reach Foundation and attached it to this work item for your review.
+            <strong>AI Assistant</strong> <span className="mention">@Sara</span> I have compiled the client onboarding package for Reach Foundation and attached it for review.
           </p>
           <div className="chat-file-attachment">
             <span className="file-icon">📊</span>
-            <span className="file-name">Q1 Financial Statements.xls</span>
+            <span className="file-name">Client Onboarding Pack.pdf</span>
             <span className="check-icon">✓</span>
           </div>
         </div>
@@ -47,7 +47,7 @@ const BillingPaymentsMockup = () => (
         <div className="billing-logo">
           <span className="logo-dot logo-dot-green"></span>
           <span className="logo-dot logo-dot-blue"></span>
-          <span className="logo-text">ACME ACCOUNTANTS</span>
+          <span className="logo-text">ACME OPERATIONS</span>
         </div>
         <div className="billing-invoice-info">
           <span className="invoice-title">Payment</span>
@@ -100,7 +100,7 @@ const ClientEngagementsMockup = () => (
         <div className="billing-logo">
           <span className="logo-dot logo-dot-green"></span>
           <span className="logo-dot logo-dot-blue"></span>
-          <span className="logo-text">ACME ACCOUNTANTS</span>
+          <span className="logo-text">ACME OPERATIONS</span>
         </div>
         <h4 className="doc-title">Introduction</h4>
       </div>
@@ -162,7 +162,7 @@ const ClientManagementMockup = () => (
           <div className="timeline-avatar avatar-sarah">SS</div>
           <div className="timeline-info">
             <span className="timeline-user">Sarah Sharpe</span>
-            <span className="timeline-activity">Audit Timeline &bull; 14 Abigail</span>
+            <span className="timeline-activity">Project Timeline &bull; 14 Abigail</span>
           </div>
         </div>
         <div className="timeline-item">
@@ -177,7 +177,7 @@ const ClientManagementMockup = () => (
           <div className="timeline-avatar avatar-pam">PZ</div>
           <div className="timeline-info">
             <span className="timeline-user">Pam Zwolliken</span>
-            <span className="timeline-activity">Completed task 'Tax Prep'</span>
+            <span className="timeline-activity">Completed task 'Project Setup'</span>
           </div>
         </div>
       </div>
@@ -190,20 +190,20 @@ export default function PracticeManagementSection() {
 
   const cards = [
     {
-      title: 'AI Agents',
-      desc: 'AI that works for your firm to handle repetitive tasks and support strategic impact.'
+      title: 'AI & Automation',
+      desc: 'AI integrations tailored to automate repetitive categorization, data extraction, and support within your custom application.'
     },
     {
       title: 'Billing & Payments',
-      desc: 'Combine workflows and remove the manual steps of reconciling time, billing and work.'
+      desc: 'Build custom checkout checkouts, automatic invoicing, and multi-currency billing workflows.'
     },
     {
-      title: 'Client Engagements',
-      desc: 'Bring every step of the client engagement process together, from proposals to payments.'
+      title: 'Client Portals',
+      desc: 'Deliver branded spaces for your clients to sign agreements, submit files, and track project status.'
     },
     {
-      title: 'Client Management',
-      desc: 'Keep client details clear, organized, and ready for review whenever you need them.'
+      title: 'Operations Dashboards',
+      desc: 'Maintain clear, searchable records of client profiles, project histories, milestones, and audit trails.'
     }
   ];
 
@@ -227,10 +227,10 @@ export default function PracticeManagementSection() {
         <div className="practice-mgmt-header">
           <div className="practice-mgmt-header-text">
             <h2 className="practice-mgmt-title">
-              Manage Your Entire Practice
+              Manage Your Entire Operations
             </h2>
             <p className="practice-mgmt-sub">
-              One intelligent platform to power your firm’s work, clients, and revenue.
+              Bespoke digital platforms engineered to power your business workflows, clients, and revenue.
             </p>
           </div>
           

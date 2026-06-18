@@ -37,12 +37,12 @@ export default function HeroSection() {
       <div className="hero-banner-inner">
         <div className="hero-banner-content">
           <h1 className="hero-banner-heading">
-            <span className="text-peach">Standardize processes</span>{' '}
-            <span className="text-white">and improve productivity</span>
+            <span className="text-peach">Custom software</span>{' '}
+            <span className="text-white">built around your business</span>
           </h1>
 
           <p className="hero-banner-desc">
-            Automate repetitive tasks so your team can focus on higher value client work.
+            We design, develop, and engineer custom web applications, internal platforms, and client portals tailored to your unique business operations.
           </p>
 
           {/* Inline Form + Or + Outline Button */}

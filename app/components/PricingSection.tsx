@@ -70,54 +70,52 @@ export default function PricingSection() {
       name: 'Starter',
       price: '29',
       billing: '/user/month',
-      description: "Essential tools for standardizing your firm's basic task and client tracking.",
+      description: "Essential design and development to digitize a single process or create a basic custom app.",
       isPopular: false,
       features: [
-        'Task Management',
-        'Client Management',
-        'Basic Workflows',
-        'Email Integration'
+        'Custom App Blueprint',
+        'Basic Database Setup',
+        'Tailored User Interface',
+        'Email API Integration'
       ]
     },
     {
       name: 'Professional',
       price: '59',
       billing: '/user/month',
-      description: "Scale your operations with advanced workflows, collaboration, and time tracking.",
+      description: "Full custom web application development, including API integrations and a custom dashboard.",
       isPopular: true,
       features: [
         'Everything in Starter',
-        'Workflow Automation',
-        'Team Collaboration',
-        'Time Tracking',
-        'Reporting Dashboard'
+        'Advanced Custom Workflows',
+        'Operations Dashboard',
+        'Multi-user Roles'
       ]
     },
     {
       name: 'Business',
       price: '99',
       billing: '/user/month',
-      description: "Unlock advanced AI automations, reporting insights, and a client portal.",
+      description: "Enterprise-grade software complete with AI automation features and a dedicated client portal.",
       isPopular: false,
       features: [
         'Everything in Professional',
-        'AI Automation',
-        'Advanced Reporting',
-        'Client Portal',
-        'Priority Support'
+        'Custom AI Agent Features',
+        'Branded Client Portal',
+        'Priority SLA Support'
       ]
     },
     {
       name: 'Enterprise',
       price: 'Custom Pricing',
       billing: '',
-      description: "Tailored solutions, dedicated support, and custom integrations for large teams.",
+      description: "Large-scale bespoke software systems, legacy migrations, and dedicated developer teams.",
       isPopular: false,
       features: [
-        'Unlimited Users',
-        'Custom Integrations',
-        'Dedicated Support',
-        'Onboarding & Training'
+        'Unlimited Custom Systems',
+        'Legacy System Migration',
+        'Custom API Connections',
+        '24/7 SLA Maintenance'
       ]
     }
   ];
@@ -127,7 +125,7 @@ export default function PricingSection() {
       <div className="section-container">
         <div className="section-header reveal" style={{ textAlign: 'center' }}>
           <span className="section-label">Investment</span>
-          <h2 className="section-title">Clear, Transparent Pricing</h2>
+          <h2 className="section-title">Custom Development & Support Plans</h2>
         </div>
 
         <div className="pricing-grid">

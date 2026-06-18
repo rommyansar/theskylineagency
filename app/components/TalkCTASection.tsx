@@ -33,7 +33,7 @@ export default function TalkCTASection() {
       <div className="spheres-bg-right"></div>
 
       <div className="section-container">
-        <h2 className="talk-cta-title">Let's talk about your firm's success.</h2>
+        <h2 className="talk-cta-title">Let's talk about your custom software needs.</h2>
         <p className="talk-cta-sub">
           Get started by becoming a Skyline customer and start a live chat with our team.
         </p>
@@ -62,9 +62,9 @@ export default function TalkCTASection() {
         {/* Bottom 3 Badges aligned horizontally */}
         <div className="talk-cta-badges-row">
           <div className="talk-cta-badge" style={{ borderBottom: '4px solid #FF5F56' }}>
-            <span style={{ fontSize: '8px', fontWeight: 800, color: '#FF5F56' }}>BEST SOFTWARE</span>
+            <span style={{ fontSize: '8px', fontWeight: 800, color: '#FF5F56' }}>BEST PARTNER</span>
             <span style={{ fontSize: '14px', fontWeight: 800 }}>Top 50</span>
-            <span style={{ fontSize: '8px', color: 'var(--text-muted)' }}>Accounting Products</span>
+            <span style={{ fontSize: '8px', color: 'var(--text-muted)' }}>Custom Software Agencies</span>
           </div>
 
           <div className="talk-cta-badge" style={{ borderBottom: '4px solid #8B5CF6' }}>

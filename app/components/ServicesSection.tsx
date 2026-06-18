@@ -10,32 +10,32 @@ export default function ServicesSection() {
           <div className="grid-two-col">
             {/* Left Content */}
             <div>
-              <span className="feature-label">PRACTICE EXCELLENCE</span>
-              <h2 className="feature-title">Automate your workflows and eliminate bottlenecks</h2>
+              <span className="feature-label">OPERATIONAL EXCELLENCE</span>
+              <h2 className="feature-title">Bespoke Web Application Development</h2>
               <p className="feature-desc">
-                Establish standardized templates, assign tasks automatically, and notify team members the instant dependencies are unblocked.
+                We build custom systems tailored to your workflows, eliminating manual data silos and operational bottlenecks.
               </p>
               <ul className="feature-list">
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Auto-assign tasks based on role, stage, or priority</span>
+                  <span>Bespoke database architecture modeled for your workflow</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Set up conditional client request flows</span>
+                  <span>Tailored user roles and administrative controls</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Pre-built templates for fast onboarding</span>
+                  <span>Custom integrations with third-party software APIs</span>
                 </li>
               </ul>
-              <a href="#workflows" className="testimonial-link">Explore workflow features</a>
+              <a href="#workflows" className="testimonial-link">Explore custom web apps</a>
             </div>
             
             {/* Right Mockup */}
@@ -53,20 +53,20 @@ export default function ServicesSection() {
                 gap: '20px'
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '16px' }}>
-                  <span style={{ fontWeight: 800, color: 'var(--text-primary)' }}>Standard Onboarding Flow</span>
+                  <span style={{ fontWeight: 800, color: 'var(--text-primary)' }}>Custom Project Onboarding Flow</span>
                   <span style={{ color: 'var(--accent-teal-hover)', fontWeight: 700, fontSize: '14px' }}>Active</span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ height: '36px', backgroundColor: 'var(--bg-primary)', borderRadius: '6px', padding: '0 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span>Step 1: Sign Agreement</span>
+                    <span>Step 1: Sign Proposal</span>
                     <span style={{ color: 'var(--text-muted)' }}>Auto-trigger</span>
                   </div>
                   <div style={{ height: '36px', backgroundColor: 'var(--bg-primary)', borderRadius: '6px', padding: '0 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span>Step 2: Collect Tax Docs</span>
-                    <span style={{ color: 'var(--text-muted)' }}>Assigned to Accountant</span>
+                    <span>Step 2: Gather Asset Requirements</span>
+                    <span style={{ color: 'var(--text-muted)' }}>Assigned to Project Lead</span>
                   </div>
                   <div style={{ height: '36px', backgroundColor: 'var(--bg-primary)', borderRadius: '6px', padding: '0 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span>Step 3: Setup Billing</span>
+                    <span>Step 3: Setup Portal Access</span>
                     <span style={{ color: 'var(--text-muted)' }}>Conditional</span>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export default function ServicesSection() {
                   </div>
                 </div>
                 <div style={{ border: '1px dashed var(--border-light)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '8px' }}>Upload 2025 Financial Statement</p>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '8px' }}>Upload Onboarding Documents</p>
                   <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Drag & drop files here or browse</span>
                 </div>
               </div>
@@ -113,29 +113,29 @@ export default function ServicesSection() {
 
             {/* Right Content */}
             <div>
-              <span className="feature-label">CLIENT CONNECTIVITY</span>
-              <h2 className="feature-title">Strengthen client connections in a unified portal</h2>
+              <span className="feature-label">CLIENT EXPERIENCE</span>
+              <h2 className="feature-title">Branded Client & Customer Portals</h2>
               <p className="feature-desc">
-                Give your clients a single secure space to upload files, sign agreements, track request statuses, and communicate with your team directly.
+                Provide a secure, branded portal where your clients can track milestones, review status updates, sign contracts, and communicate with your team directly.
               </p>
               <ul className="feature-list">
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Encrypted file uploads and eSignatures</span>
+                  <span>Encrypted file uploads and digital eSignatures</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Automated text notifications and emails</span>
+                  <span>Bespoke text notifications and email updates</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Visible checklists for outstanding client tasks</span>
+                  <span>Interactive progress tracking and outstanding checklist items</span>
                 </li>
               </ul>
               <a href="#portal" className="testimonial-link">Explore client portals</a>
@@ -149,28 +149,28 @@ export default function ServicesSection() {
             {/* Left Content */}
             <div>
               <span className="feature-label">BUSINESS INTELLIGENCE</span>
-              <h2 className="feature-title">Optimize operations with real-time analytics</h2>
+              <h2 className="feature-title">Operations Dashboards & Analytics</h2>
               <p className="feature-desc">
-                Visualize team utilization capacity, track project budget spend, isolate delivery bottlenecks, and forecast future revenue from a central dashboard.
+                Track team performance, project budgets, and key business performance metrics in real-time from a central custom dashboard.
               </p>
               <ul className="feature-list">
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Live capacity and staff utilization metrics</span>
+                  <span>Real-time operations tracking and team capacity logs</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Automated time tracking and budget alerts</span>
+                  <span>Automated time logs and custom budget alerts</span>
                 </li>
                 <li className="feature-list-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  <span>Detailed operational pipeline reports</span>
+                  <span>Detailed project milestone and performance reports</span>
                 </li>
               </ul>
               <a href="#analytics" className="testimonial-link">Explore reporting features</a>

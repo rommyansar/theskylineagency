@@ -7,24 +7,24 @@ const reviews = [
     rating: 5,
     name: 'Jane Henderson',
     role: 'Managing Director',
-    company: 'Apex Financial Partners',
-    text: '“Before Skyline, we spent 15+ hours a week chasing client bank statements and signatures. Now it is on autopilot. The portal is so easy that even our non-tech clients love uploading files there.”',
+    company: 'Apex Partners',
+    text: '“Before Skyline, our team spent hours chasing client files and project specifications. Skyline built a custom project portal tailored to our workflow. Now, everything is on autopilot. Our clients love uploading design files and briefs directly there.”',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
   },
   {
     rating: 5,
     name: 'David Chen',
     role: 'Founder & Principal',
-    company: 'Chen Advisory Group',
-    text: '“The Telegram notifications for demo bookings and client onboarding requests are a game changer. We respond instantly and close deals faster than ever. It is a premium experience for our firm.”',
+    company: 'Chen Consulting Group',
+    text: '“The custom booking application and real-time SMS alerts Skyline developed for our business are a game changer. We reduce scheduling conflicts and coordinate client milestones instantly. It is a premium experience.”',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
   },
   {
     rating: 5,
     name: 'Elena Rostova',
     role: 'VP of Operations',
-    company: 'Horizon Tax & Wealth',
-    text: '“Skyline gave us the visibility we desperately needed. Our dashboard shows exactly who is pending or approved, which has cut tax prep times in half. The system pays for itself monthly.”',
+    company: 'Horizon Digital Solutions',
+    text: '“Skyline built a custom operations dashboard that gave us the visibility we desperately needed. We track project statuses and capacity in real-time, cutting turnaround times in half. The system paid for itself month one.”',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
   },
   {
@@ -32,7 +32,7 @@ const reviews = [
     name: 'Marcus Vance',
     role: 'Managing Partner',
     company: 'Vance Consulting',
-    text: '“We migrated all client communication and secure uploads to Skylines portal. Having one single trusted hub has elevated our brand image and client trust dramatically.”',
+    text: '“We migrated all client communication and project milestones to a custom CRM Skyline built for us. Having one single trusted hub has elevated our brand image and client trust dramatically.”',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
   }
 ];
@@ -46,7 +46,7 @@ export default function ReviewsSection() {
         {/* Header and trust stats */}
         <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '64px' }}>
           <span className="section-label" style={{ color: 'var(--accent-teal)' }}>REVIEWS & SOCIAL PROOF</span>
-          <h2 className="section-title">Trusted by Top-Performing Firms</h2>
+          <h2 className="section-title">Trusted by Top-Performing Businesses</h2>
           
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '16px' }}>
             <div style={{ display: 'flex', color: '#FBBF24' }}>

@@ -11,7 +11,7 @@ export default function Footer() {
               Skyline<span className="accent-dot">.</span>
             </a>
             <p className="footer-desc">
-              Redefining workspace automation, task efficiency, and client portal experiences for leading digital agencies and accounting firms worldwide.
+              Building custom web applications, operations dashboards, client portals, and internal tools tailored to your unique business requirements.
             </p>
             <div className="footer-social-row">
               <a href="https://www.instagram.com/theskyline.agency/" target="_blank" rel="noreferrer" className="footer-social-link" aria-label="Instagram">

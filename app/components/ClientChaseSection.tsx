@@ -10,11 +10,11 @@ export default function ClientChaseSection() {
       <div className="section-container">
         <div className="grid-two-col chase-grid">
           
-          {/* Left Column: Interactive Client Task Auto-Reminders Mockup Card */}
+          {/* Left Column: Interactive Client Portal & Auto-Reminders Mockup Card */}
           <div className="chase-left-col">
             <div className="reminders-card">
               <div className="reminders-card-header">
-                <h3>Client Task Auto-Reminders</h3>
+                <h3>Client Portal & Auto-Reminders</h3>
               </div>
               
               <div className="reminders-card-body">
@@ -29,7 +29,7 @@ export default function ClientChaseSection() {
                     <span className="toggle-slider"></span>
                   </button>
                   <span className="toggle-label">
-                    Automatically send <span className="text-blue-link">Gentle Reminders</span>
+                    Automatically send <span className="text-blue-link">Milestone Alerts</span>
                   </span>
                 </div>
 
@@ -42,7 +42,7 @@ export default function ClientChaseSection() {
                         <polyline points="12 6 12 12 16 14" />
                       </svg>
                     </span>
-                    <span className="reminder-text">Reminder 7 days before task due-date</span>
+                    <span className="reminder-text">Alert 7 days before milestone due-date</span>
                   </div>
 
                   <div className="reminder-item">
@@ -52,7 +52,7 @@ export default function ClientChaseSection() {
                         <polyline points="12 6 12 12 16 14" />
                       </svg>
                     </span>
-                    <span className="reminder-text">Reminder on task due-date</span>
+                    <span className="reminder-text">SMS notification on due-date</span>
                   </div>
 
                   <div className="reminder-item">
@@ -62,7 +62,7 @@ export default function ClientChaseSection() {
                         <polyline points="12 6 12 12 16 14" />
                       </svg>
                     </span>
-                    <span className="reminder-text">Daily reminder when overdue</span>
+                    <span className="reminder-text">Daily follow-up for missing deliverables</span>
                   </div>
                 </div>
 
@@ -78,14 +78,14 @@ export default function ClientChaseSection() {
 
           {/* Right Column: Copy & Content */}
           <div className="chase-right-col">
-            <h2 className="chase-title">Automate the client chase</h2>
+            <h2 className="chase-title">Automate manual follow-ups</h2>
             
             <p className="chase-desc">
-              Let Karbon do the chasing for you by automating client requests and reminders. Clients become part of your workflow, so they know exactly what they need to action, and you know what you are still waiting on.
+              Let your custom system handle client follow-ups. We build bespoke client portals and automated notifications directly into your platforms. Clients know exactly what files or approvals they need to provide, keeping your projects on track.
             </p>
             
             <p className="chase-desc">
-              Attachments are automatically stored and filed against the corresponding jobs the moment a client sends them. You will never lose documents sent via email again.
+              All uploads and form entries are automatically routed directly to your internal database or CRM, saving hours of manual data copy and filing.
             </p>
           </div>
 

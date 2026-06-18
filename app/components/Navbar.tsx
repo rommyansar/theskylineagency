@@ -205,7 +205,7 @@ export default function Navbar() {
                       name="company" 
                       value={demoForm.company}
                       onChange={handleInputChange}
-                      placeholder="Apex Financial Partners" 
+                      placeholder="My Business Name" 
                       disabled={isSubmittingDemo}
                     />
                   </div>
@@ -217,7 +217,7 @@ export default function Navbar() {
                       rows={3} 
                       value={demoForm.details}
                       onChange={handleInputChange}
-                      placeholder="Tell us about your firm size, workflows, or objectives..."
+                      placeholder="Tell us about your custom software requirements, goals, or industry..."
                       disabled={isSubmittingDemo}
                     />
                   </div>

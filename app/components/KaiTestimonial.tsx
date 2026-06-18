@@ -10,10 +10,10 @@ interface TaskItem {
 
 export default function KaiTestimonial() {
   const [tasks, setTasks] = useState<TaskItem[]>([
-    { id: 1, text: 'Collect signed engagement letter', completed: true },
-    { id: 2, text: 'Request prior year tax documents', completed: true },
-    { id: 3, text: 'Set up billing schedule in client portal', completed: false },
-    { id: 4, text: 'Schedule onboarding kick-off call', completed: false },
+    { id: 1, text: 'Collect signed project contract', completed: true },
+    { id: 2, text: 'Request onboarding assets & guidelines', completed: true },
+    { id: 3, text: 'Set up client portal permissions', completed: false },
+    { id: 4, text: 'Schedule project kickoff call', completed: false },
   ]);
 
   const toggleTask = (id: number) => {
@@ -28,12 +28,12 @@ export default function KaiTestimonial() {
         <div className="grid-two-col">
           {/* Left Column - Quote & Info */}
           <div className="testimonial-quote-block">
-            <span className="testimonial-label">AUTOMATION & EFFICIENCY</span>
+            <span className="testimonial-label">CUSTOM SOFTWARE</span>
             
             <div style={{ position: 'relative' }}>
               <span className="quote-mark-large">“</span>
               <h2 className="testimonial-quote-text" style={{ position: 'relative', zIndex: 2 }}>
-                Enabled us to be more efficient, reduce manual tasks, and put us in complete control of our client delivery.
+                Built a custom application that fits our exact business rules and put us in complete control of our client delivery.
               </h2>
             </div>
 
@@ -42,7 +42,7 @@ export default function KaiTestimonial() {
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)' }}>Pretium Solutions</span>
+              <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)' }}>Pretium Group</span>
               <div style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: 'var(--text-muted)' }}></div>
               <span style={{ fontSize: '15px', color: 'var(--text-muted)' }}>G2 Verified Review</span>
             </div>
@@ -61,10 +61,10 @@ export default function KaiTestimonial() {
             <div className="mockup-card-container">
               <div className="mockup-header">
                 <div>
-                  <h3 className="mockup-title">Client Onboarding</h3>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>Workflow Automation Active</p>
+                  <h3 className="mockup-title">Client Portal Setup</h3>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>Custom Application Active</p>
                 </div>
-                <span className="mockup-badge">Kai AI</span>
+                <span className="mockup-badge">Skyline AI</span>
               </div>
 
               <div className="mockup-list">

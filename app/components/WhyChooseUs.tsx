@@ -11,9 +11,9 @@ export default function WhyChooseUs() {
         {/* Header Block */}
         <div className="section-header reveal" style={{ textAlign: 'center', marginBottom: '80px' }}>
           <span className="section-label">Why Skyline</span>
-          <h2 className="section-title">The Operating System for Modern Firms</h2>
+          <h2 className="section-title">Custom Software Built for Your Business</h2>
           <p style={{ maxWidth: '640px', margin: '16px auto 0', color: 'var(--text-secondary)', fontSize: '18px', lineHeight: '1.6' }}>
-            Replace fragmented tools with a single workspace. Autopilot your client requests, streamline firm operations, and scale your margins.
+            Ditch rigid SaaS templates that force you to compromise. We design and build custom web applications modeled around your unique workflows.
           </p>
         </div>
 
@@ -28,10 +28,10 @@ export default function WhyChooseUs() {
               Visibility & Control
             </div>
             <h3 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '20px', lineHeight: '1.2' }}>
-              Know exactly where every client request stands
+              Custom Dashboards & Real-time Tracking
             </h3>
             <p style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-              Ditch the endless email threads. Skyline provides a unified dashboard tracking all active client tasks, pending file uploads, and approval stages in real-time.
+              Track every operational detail in real-time. Skyline builds central dashboard interfaces showing project milestones, user activity metrics, and approval stages.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px 0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--text-primary)', fontWeight: 600 }}>
@@ -61,27 +61,27 @@ export default function WhyChooseUs() {
           {/* Visual Mockup for Visibility */}
           <div className="why-pillar-visual">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '14px', marginBottom: '20px' }}>
-              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Firm Activity Stream</span>
+              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Operations Activity Stream</span>
               <span style={{ fontSize: '11px', color: '#888', background: 'rgba(255,255,255,0.05)', padding: '4px 8px', borderRadius: '4px' }}>Live Update</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px', borderLeft: '3px solid #FF5F56' }}>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>tax_returns_2025.pdf</div>
+                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>project_brief_final.pdf</div>
                   <div style={{ color: '#888', fontSize: '11px' }}>Uploaded by Client • John & Co</div>
                 </div>
                 <span style={{ fontSize: '11px', color: '#FF5F56', fontWeight: 800, backgroundColor: 'rgba(255,95,86,0.1)', padding: '2px 8px', borderRadius: '4px' }}>Needs Review</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px', borderLeft: '3px solid var(--accent-teal)' }}>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Bank Statements (March)</div>
+                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Milestone Approval (March)</div>
                   <div style={{ color: '#888', fontSize: '11px' }}>Approved by Carla Caldwell</div>
                 </div>
                 <span style={{ fontSize: '11px', color: 'var(--accent-teal)', fontWeight: 800, backgroundColor: 'rgba(0,203,160,0.1)', padding: '2px 8px', borderRadius: '4px' }}>Approved</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px', borderLeft: '3px solid #8B5CF6' }}>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Payroll Sheet Template</div>
+                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Operational SOP Template</div>
                   <div style={{ color: '#888', fontSize: '11px' }}>Task assigned to Sarah Smith</div>
                 </div>
                 <span style={{ fontSize: '11px', color: '#8B5CF6', fontWeight: 800, backgroundColor: 'rgba(139,92,246,0.1)', padding: '2px 8px', borderRadius: '4px' }}>In Progress</span>
@@ -95,7 +95,7 @@ export default function WhyChooseUs() {
           {/* Visual Mockup for Automation */}
           <div className="why-pillar-visual" style={{ order: 2 }}>
             <div style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '14px', marginBottom: '20px' }}>
-              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Client Chase Reminders (Autopilot)</span>
+              <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Custom Project Flow (Autopilot)</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', position: 'relative' }}>
               {/* Timeline Connector Line */}
@@ -104,8 +104,8 @@ export default function WhyChooseUs() {
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#333', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700 }}>1</div>
                 <div>
-                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Initial File Request Sent</div>
-                  <div style={{ color: '#888', fontSize: '11px' }}>Email template: Document Request</div>
+                  <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Booking / Onboarding Confirmed</div>
+                  <div style={{ color: '#888', fontSize: '11px' }}>Trigger: Proposal Signed</div>
                 </div>
               </div>
 
@@ -113,14 +113,14 @@ export default function WhyChooseUs() {
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#F18978', color: '#121212', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700 }}>2</div>
                 <div>
                   <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 600 }}>Auto-Reminder 1 (3 Days Later)</div>
-                  <div style={{ color: '#888', fontSize: '11px' }}>Friendly SMS check-in pinged to client</div>
+                  <div style={{ color: '#888', fontSize: '11px' }}>Friendly SMS check-in sent to guest/client</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--accent-teal)', color: '#121212', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700 }}>✓</div>
                 <div>
-                  <div style={{ color: 'var(--accent-teal)', fontSize: '13px', fontWeight: 700 }}>File Uploaded & Logged</div>
+                  <div style={{ color: 'var(--accent-teal)', fontSize: '13px', fontWeight: 700 }}>Digital Intake Form Logged</div>
                   <div style={{ color: '#888', fontSize: '11px' }}>Stored in database, team notified</div>
                 </div>
               </div>
@@ -135,10 +135,10 @@ export default function WhyChooseUs() {
               Automation & Efficiency
             </div>
             <h3 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '20px', lineHeight: '1.2' }}>
-              Put client reminders and uploads on autopilot
+              Bespoke Automations & Logic
             </h3>
             <p style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-              Reminding clients to upload files takes up hours of your team&apos;s time. Skyline automates email and SMS reminders based on custom triggers so files arrive on schedule.
+              Eliminate manual data entries and constant client chasing. We build custom triggers, SMS pings, and database actions to manage reservation bookings, files, and follow-ups.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px 0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--text-primary)', fontWeight: 600 }}>
@@ -182,7 +182,7 @@ export default function WhyChooseUs() {
               A secure, shared portal for you and your clients
             </h3>
             <p style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-              Give clients a clean, white-labeled client portal to access their document lists, review messages, and securely upload payroll, tax, or business sheets in seconds.
+              Provide a clean, white-labeled client portal for file sharing, chat support, and e-signatures, fully integrated with your existing business databases.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px 0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--text-primary)', fontWeight: 600 }}>
@@ -227,7 +227,7 @@ export default function WhyChooseUs() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', backgroundColor: 'rgba(255,255,255,0.03)', borderRadius: '6px' }}>
-              <span style={{ color: '#FFFFFF', fontSize: '12px' }}>Uploaded: W2_statements.pdf</span>
+              <span style={{ color: '#FFFFFF', fontSize: '12px' }}>Uploaded: project_details.pdf</span>
               <span style={{ color: 'var(--accent-teal)', fontSize: '11px', fontWeight: 700 }}>✓ Uploaded</span>
             </div>
           </div>

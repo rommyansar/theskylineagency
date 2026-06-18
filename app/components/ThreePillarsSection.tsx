@@ -10,7 +10,7 @@ export default function ThreePillarsSection() {
   const tabs = [
     {
       id: 'automation' as TabId,
-      label: 'Automation & Efficiency',
+      label: 'Client & Customer Portals',
       number: '01',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -18,15 +18,15 @@ export default function ThreePillarsSection() {
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
         </svg>
       ),
-      quote: '"Enabled us to be more efficient, productive and profitable."',
-      author: 'G2 Review from Paul Sweeney, Pretium Solutions',
-      desc: 'Get more out of every team member by automating tasks, standardizing common processes, scheduling data collection and scaling onboarding.',
-      linkText: 'How Skyline saves each employee 18.5 hours a week',
-      linkUrl: '#automation-case'
+      quote: '"Built a custom portal that fits our business rules perfectly."',
+      author: 'G2 Review from Paul Sweeney, Founder at Pretium Group',
+      desc: 'We design and develop secure, branded client portals where customers can book services, sign contracts, upload documents, and track milestones.',
+      linkText: 'How Skyline builds custom portals',
+      linkUrl: '#portal-case'
     },
     {
       id: 'collaboration' as TabId,
-      label: 'Collaboration & Connectivity',
+      label: 'Internal Operations & CRMs',
       number: '02',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -36,15 +36,15 @@ export default function ThreePillarsSection() {
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
-      quote: '"The perfect program for team collaboration and accountability."',
-      author: 'G2 Review from Katherine White, Ivory Planning Group',
-      desc: 'Unite the firm with one place to collaborate on email, clients, jobs and tasks. Get more work done together, whether people are remote or in the office.',
-      linkText: 'How Skyline connects your team',
+      quote: '"The perfect platform for team collaboration and operational control."',
+      author: 'G2 Review from Katherine White, Operations Director at Ivory Consulting',
+      desc: 'Centralize your databases, staff schedules, and internal routines. We engineer administrative panels and custom CRMs that align with how your team works.',
+      linkText: 'How Skyline builds operational tools',
       linkUrl: '#collaboration-case'
     },
     {
       id: 'visibility' as TabId,
-      label: 'Visibility & Control',
+      label: 'Analytics & Integrations',
       number: '03',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -52,10 +52,10 @@ export default function ThreePillarsSection() {
           <circle cx="12" cy="12" r="3" />
         </svg>
       ),
-      quote: '"Finally in control of my practice."',
-      author: 'G2 Review from Ali Redwood, TaxAssist Accountants',
-      desc: 'Enjoy peace of mind knowing where every job stands, who’s working on what, and what’s being said to clients. No blind spots. Nothing falls through the cracks.',
-      linkText: 'How Skyline puts you in control',
+      quote: '"Finally in complete control of our data and tools."',
+      author: 'G2 Review from Ali Redwood, Founder at Redwood Services',
+      desc: 'Connect your platforms to any third-party API, CRM, or payment gateway. Track utilization, budgets, and key business metrics from a single source of truth.',
+      linkText: 'How Skyline builds custom analytics dashboards',
       linkUrl: '#visibility-case'
     }
   ];
@@ -123,7 +123,7 @@ export default function ThreePillarsSection() {
               {activeTab === 'automation' && (
                 <div className="pillar-mockup-content automation-mockup">
                   <div className="mockup-header">
-                    <span className="mockup-header-title">Workflow Automation</span>
+                    <span className="mockup-header-title">Custom Client Portal</span>
                     <button className="mockup-header-btn">Add Request</button>
                   </div>
                   
@@ -165,7 +165,7 @@ export default function ThreePillarsSection() {
               {activeTab === 'collaboration' && (
                 <div className="pillar-mockup-content collaboration-mockup">
                   <div className="mockup-header" style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '10px' }}>
-                    <span className="mockup-header-title">Shared Project Inbox</span>
+                    <span className="mockup-header-title">Operations Dashboard</span>
                   </div>
 
                   <div className="mockup-chat-bubble-container">
@@ -199,7 +199,7 @@ export default function ThreePillarsSection() {
               {activeTab === 'visibility' && (
                 <div className="pillar-mockup-content visibility-mockup">
                   <div className="mockup-header" style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '8px' }}>
-                    <span className="mockup-header-title">Capacity Tracking</span>
+                    <span className="mockup-header-title">Data Analytics Panel</span>
                     <div className="mockup-header-stats">
                       <div className="mockup-stat-item">
                         <span className="stat-dot dot-teal"></span>
@@ -216,7 +216,7 @@ export default function ThreePillarsSection() {
                   <div className="mockup-task-cards-list">
                     {[
                       {
-                        title: 'Monthly Accounts',
+                        title: 'Client Onboarding',
                         client: 'Pacific Coast Logistics',
                         status: 'In Progress',
                         budget: '3h 30m',
@@ -225,7 +225,7 @@ export default function ThreePillarsSection() {
                         colorClass: 'color-teal'
                       },
                       {
-                        title: 'Service Proposal',
+                        title: 'Project Delivery',
                         client: 'Farmer Fresh Markets',
                         status: 'In Progress',
                         budget: '2h',
@@ -234,8 +234,8 @@ export default function ThreePillarsSection() {
                         colorClass: 'color-teal'
                       },
                       {
-                        title: 'Internal Process Review',
-                        client: 'Individual Tax - Harriet London',
+                        title: 'API Database Sync',
+                        client: 'Harriet London Consulting',
                         status: 'In Progress',
                         budget: '3h 30m',
                         actual: '1h',
