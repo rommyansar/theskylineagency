@@ -41,17 +41,31 @@ export default function PracticeManagementSection() {
   ];
 
   const totalSlides = projects.length;
+  // On desktop with 3 cards visible out of 4, maxSlide is 1; with 2 visible, maxSlide is 2.
+  // Setting maxSlide to totalSlides - 1 ensures all projects can always be reached.
+  const maxSlide = Math.max(1, totalSlides - 1);
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev < totalSlides - 3 ? prev + 1 : prev));
+    setCurrentSlide((prev) => (prev < maxSlide ? prev + 1 : prev));
+  };
+
+  const handleViewProject = (e: React.MouseEvent, projectTitle: string, industry: string) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-project-modal', {
+        detail: { project: `${industry}: ${projectTitle}` },
+      }));
+    }
   };
 
   return (
-    <section className="practice-mgmt-section" id="practice-mgmt">
+    <section className="practice-mgmt-section" id="case-studies">
+      {/* Fallback anchor for previous #practice-mgmt links */}
+      <span id="practice-mgmt" style={{ position: 'absolute', marginTop: '-100px', visibility: 'hidden' }} />
       <div className="section-container">
         
         {/* Header with Carousel controls */}
@@ -81,7 +95,7 @@ export default function PracticeManagementSection() {
 
             <button 
               onClick={handleNext}
-              disabled={currentSlide >= totalSlides - 3}
+              disabled={currentSlide >= maxSlide}
               className="control-btn next-btn"
               aria-label="Scroll to next item"
             >
@@ -98,7 +112,7 @@ export default function PracticeManagementSection() {
           <div 
             className="carousel-track"
             style={{
-              transform: `translateX(-${currentSlide * 35}%)`
+              transform: `translateX(-${currentSlide * 410}px)`
             }}
           >
             {projects.map((project, idx) => (
@@ -137,7 +151,11 @@ export default function PracticeManagementSection() {
                     ))}
                   </div>
                   
-                  <a href="#contact" className="card-body-link">
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => handleViewProject(e, project.title, project.industry)} 
+                    className="card-body-link"
+                  >
                     View Project
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M1 4h8M6 1l3 3-3 3" />

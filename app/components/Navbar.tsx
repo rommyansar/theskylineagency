@@ -31,6 +31,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleOpenModal = (e: any) => {
+      setIsDemoModalOpen(true);
+      setDemoSuccess(false);
+      setDemoError('');
+      if (e?.detail?.project) {
+        setDemoForm(prev => ({
+          ...prev,
+          details: `Interested in: ${e.detail.project}`,
+        }));
+      }
+    };
+    window.addEventListener('open-project-modal', handleOpenModal);
+    return () => window.removeEventListener('open-project-modal', handleOpenModal);
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     if (!isMobileMenuOpen) {

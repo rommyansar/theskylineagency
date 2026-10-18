@@ -1,9 +1,31 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 
 export default function WhyChooseUs() {
   const sectionRef = useReveal();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const el = document.getElementById(targetId);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  }, []);
+
+  const handleOpenProjectModal = (e: React.MouseEvent, projectContext?: string) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-project-modal', {
+        detail: projectContext ? { project: projectContext } : undefined,
+      }));
+    }
+  };
 
   return (
     <section className="why-section" id="why" ref={sectionRef}>
@@ -53,7 +75,12 @@ export default function WhyChooseUs() {
                 Fixed-price contracts with no scope creep
               </li>
             </ul>
-            <a href="#contact" className="btn-primary" style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px' }}>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleOpenProjectModal(e, 'Proven Delivery & Milestone Tracking')} 
+              className="btn-primary" 
+              style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px' }}
+            >
               Start a Project
             </a>
           </div>
@@ -145,8 +172,13 @@ export default function WhyChooseUs() {
                 Working demos at every milestone
               </li>
             </ul>
-            <a href="#contact" className="btn-primary" style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px', backgroundColor: '#F18978' }}>
-              See Our Process
+            <a 
+              href="#contact" 
+              onClick={(e) => handleOpenProjectModal(e, 'Development Process & Scoping')} 
+              className="btn-primary" 
+              style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px', backgroundColor: '#F18978' }}
+            >
+              Schedule Discovery Call
             </a>
           </div>
         </div>
@@ -187,8 +219,13 @@ export default function WhyChooseUs() {
                 Cloud deployment on AWS, Vercel, or your infrastructure
               </li>
             </ul>
-            <a href="#contact" className="btn-primary" style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px', backgroundColor: '#8B5CF6' }}>
-              Meet Our Team
+            <a 
+              href="#contact" 
+              onClick={(e) => handleOpenProjectModal(e, 'Technical Architecture Consultation')} 
+              className="btn-primary" 
+              style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '15px', backgroundColor: '#8B5CF6' }}
+            >
+              Talk to an Engineer
             </a>
           </div>
 

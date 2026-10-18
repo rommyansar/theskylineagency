@@ -23,7 +23,7 @@ export default function ThreePillarsSection() {
       author: 'Paul Sweeney, Founder at Pretium Group',
       desc: 'We design and develop customer-facing web applications — booking platforms, client portals, e-commerce storefronts, and self-service dashboards — tailored to your brand and business logic.',
       linkText: 'See how we build client applications',
-      linkUrl: '#case-studies'
+      linkUrl: '/#case-studies'
     },
     {
       id: 'platforms' as TabId,
@@ -41,7 +41,7 @@ export default function ThreePillarsSection() {
       author: 'Katherine White, Operations Director at Ivory Consulting',
       desc: 'We engineer admin panels, staff management systems, and internal operations platforms that centralize your data, automate routine tasks, and give your team a single source of truth.',
       linkText: 'See how we build internal platforms',
-      linkUrl: '#case-studies'
+      linkUrl: '/#case-studies'
     },
     {
       id: 'integrations' as TabId,
@@ -57,7 +57,7 @@ export default function ThreePillarsSection() {
       author: 'Ali Redwood, Founder at Redwood Services',
       desc: 'We connect your platforms to any third-party API — payment processors, CRMs, shipping providers, analytics tools — building robust middleware and data pipelines that keep your systems in sync.',
       linkText: 'See how we build integrations',
-      linkUrl: '#case-studies'
+      linkUrl: '/#case-studies'
     }
   ];
 
@@ -105,7 +105,17 @@ export default function ThreePillarsSection() {
                   <p className="pillar-active-desc">
                     {tab.desc}
                   </p>
-                  <a href={tab.linkUrl} className="pillar-active-link">
+                  <a 
+                    href={tab.linkUrl} 
+                    onClick={(e) => {
+                      const el = document.getElementById('case-studies');
+                      if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="pillar-active-link"
+                  >
                     {tab.linkText}
                     <svg width="14" height="12" viewBox="0 0 14 12" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M1 6h12M8 1l5 5-5 5" />

@@ -6,24 +6,34 @@ import { submitDemoRequest } from '../actions/demo';
 export default function TalkCTASection() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
+    setErrorMsg('');
 
     try {
       const res = await submitDemoRequest(email);
       if (res.success) {
-        alert(`Thank you! Your project inquiry has been sent for: ${email}`);
+        setIsSuccess(true);
         setEmail('');
       } else {
-        alert(`Could not send request: ${res.error}`);
+        setErrorMsg(res.error || 'Could not send request. Please try again.');
       }
     } catch (err) {
-      alert('An error occurred. Please try again.');
+      setErrorMsg('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleOpenFullModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-project-modal'));
     }
   };
 
@@ -38,25 +48,72 @@ export default function TalkCTASection() {
           Get in touch with our engineering team to discuss your project requirements and receive a custom estimate.
         </p>
 
-        {/* Pill Form */}
+        {/* Pill Form or Success Message */}
         <div className="talk-cta-form-wrap">
-          <form className="pill-form-container" onSubmit={handleSubmit}>
-            <input 
-              type="email" 
-              className="pill-form-input" 
-              placeholder="Your work email address" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required 
-            />
-            <button 
-              type="submit" 
-              className="pill-form-btn" 
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending...' : 'Get a Proposal'}
-            </button>
-          </form>
+          {isSuccess ? (
+            <div style={{
+              backgroundColor: 'rgba(0, 203, 160, 0.12)',
+              border: '1px solid var(--accent-teal)',
+              borderRadius: '50px',
+              padding: '16px 32px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              color: '#FFFFFF',
+              boxShadow: '0 8px 30px rgba(0, 203, 160, 0.2)'
+            }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style={{ fontWeight: 700, fontSize: '15px' }}>
+                Thank you! Your project proposal request has been received. Our team will review and reply within 24 hours.
+              </span>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', width: '100%', maxWidth: '520px', margin: '0 auto' }}>
+              {errorMsg && (
+                <div style={{ color: '#ff6b6b', fontSize: '13px', background: 'rgba(255, 107, 107, 0.12)', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255, 107, 107, 0.25)' }}>
+                  {errorMsg}
+                </div>
+              )}
+              <form className="pill-form-container" onSubmit={handleSubmit} style={{ width: '100%' }}>
+                <input 
+                  type="email" 
+                  className="pill-form-input" 
+                  placeholder="Your work email address" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required 
+                  disabled={isSubmitting}
+                />
+                <button 
+                  type="submit" 
+                  className="pill-form-btn" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Get a Proposal'}
+                </button>
+              </form>
+              <div style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)' }}>
+                Have detailed requirements?{' '}
+                <button 
+                  onClick={handleOpenFullModal}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--accent-teal)',
+                    fontWeight: 700,
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    padding: 0,
+                    fontSize: '13px'
+                  }}
+                >
+                  Fill out our project planner →
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Bottom 3 Badges aligned horizontally */}

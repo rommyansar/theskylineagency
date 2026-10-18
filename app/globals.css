@@ -2289,6 +2289,7 @@ a {
 .carousel-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .carousel-track {
